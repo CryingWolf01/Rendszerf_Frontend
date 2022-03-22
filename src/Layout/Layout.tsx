@@ -1,6 +1,5 @@
 import { Box, IconButton, makeStyles, Tooltip, Typography } from "@material-ui/core";
 import { ArrowBack } from "@material-ui/icons";
-import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import {useNavigate, useLocation} from "react-router-dom";
 import SideBar from "./Sidebar/Sidebar";
