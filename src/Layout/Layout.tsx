@@ -59,7 +59,7 @@ const Layout = ({ children }: Props): JSX.Element=>{
           padding="24px 24px 24px calc(125px + 24px)"
         >
           <Box display="flex">
-            {pathname !== "/" && (
+            {pathname !== "/home" && (
               <Tooltip title={t("common:button.back").toString()}>
                 <IconButton
                   style={{ marginRight: 20 }}
