@@ -5,7 +5,7 @@ import { Education } from "../types";
 const ENDPOINT = "/education"
 
 export const saveEducation = (param: Education)=> 
-  axios.post(`${ENDPOINT}/save`, param);
+  axios.post(`${ENDPOINT}/save`, {param});
 
 export const getEducationById = (id: number)=> 
   axios.get<GenericResponse<Education>>(`${ENDPOINT}/get-by-id?id=${id}`);
