@@ -29,6 +29,20 @@ const UserForm = () => {
           />
         </Grid>
         <Grid item xs={12}>
+          <TextField
+            label={"Jelszó"}
+            InputLabelProps={{ shrink: true, required: true }}
+            {...register("password", {
+              required: {
+                value: true,
+                message: t("common:validation.required"),
+              },
+            })}
+            error={formState.errors.password && true}
+            helperText={formState.errors?.password?.message}
+          />
+        </Grid>
+        <Grid item xs={12}>
             <Controller
               control={control}
               name="userType"
@@ -49,9 +63,10 @@ const UserForm = () => {
                   <MenuItem disabled value="default">
                     {"Kérem válasszon..."}
                   </MenuItem>
-                  <MenuItem value="Eszközfelelős">Eszközfelelős</MenuItem>
-                  <MenuItem value="Operátor">Operátor</MenuItem>
-                  <MenuItem value="Karbantartó">Karbantartó</MenuItem>
+                  <MenuItem value="ADMIN">Admin</MenuItem>
+                  <MenuItem value="TOOL_MANAGER">Eszközfelelős</MenuItem>
+                  <MenuItem value="OPERATOR">Operátor</MenuItem>
+                  <MenuItem value="REPAIRMAN">Karbantartó</MenuItem>
                 </TextField>
               )}
             />
