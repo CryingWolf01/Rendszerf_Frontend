@@ -1,4 +1,5 @@
 import axios from "../../config/axios";
+import { GenericListResponse, GenericPageResponse } from "../common";
 import { User } from "../types";
 
 const ENDPOINT = "/user"
@@ -10,7 +11,7 @@ export const loginUser = (param: User)=>
   axios.post(`${ENDPOINT}/login`, param);
 
 export const getUsersPageable = (page: number, size: number, search: string = "")=> 
-  axios.get(`${ENDPOINT}/pageable?page=${page}&size=${size}&search=${search}`);
+  axios.get<GenericPageResponse<User>>(`${ENDPOINT}/pageable?page=${page}&size=${size}&search=${search}`);
 
 export const getUserList = (search: string="")=> 
-  axios.get(`${ENDPOINT}/list?search=${search}`);
+  axios.get<GenericListResponse<User>>(`${ENDPOINT}/list?search=${search}`);

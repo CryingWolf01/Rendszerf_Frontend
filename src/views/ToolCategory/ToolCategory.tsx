@@ -5,8 +5,8 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
-import { getUsersPageable } from "../../shared/network/user.api";
-import UserRow from "./UserRow";
+import { getToolCategoryPageable } from "../../shared/network/tool_category.api";
+import ToolCategoryRow from "./ToolCategoryRow";
 
 const useStyles = makeStyles({
   listTitle: {
@@ -20,19 +20,19 @@ const useStyles = makeStyles({
   },
 });
 
-const User = () => {
+const ToolCategory = () => {
   const { t } = useTranslation();
   const classes = useStyles();
   const [page, setPage] = useState(
     parseInt(
-      window.sessionStorage.getItem("UserPageNumber") || JSON.stringify(0)
+      window.sessionStorage.getItem("ToolCategoryPageNumber") || JSON.stringify(0)
     )
   );
   
-  const listUsersQuery = useQuery(
-    ["listUsersQuery", page],
+  const listToolCategoryQuery = useQuery(
+    ["listToolCategoryQuery", page],
     async () => {
-      const { data } = await getUsersPageable(page, 10);
+      const { data } = await getToolCategoryPageable(page, 10);
       return data;
     }
   );
@@ -41,18 +41,18 @@ const User = () => {
     <Container maxWidth="lg">
       <Box display="flex" justifyContent="flex-end">
         <Box>
-          <Button component={Link} to="/user-create">
+          <Button component={Link} to="/tool-category-create">
             <Add
               style={{
                 fontSize: "20px",
                 marginRight: 8,
               }}
             />
-            {"Felhasználó felvétele"}
+            {"Eszköz kategória felvétele"}
           </Button>
         </Box>
       </Box>
-      {listUsersQuery.isFetching ? (
+      {listToolCategoryQuery.isFetching ? (
         <Box
           display="flex"
           alignItems="center"
@@ -63,7 +63,7 @@ const User = () => {
         </Box>
       ) : (
         <>
-          {listUsersQuery.data?.page.content === null ? (
+          {listToolCategoryQuery.data?.page.content === null ? (
             <Box style={{ marginBottom: "20px" }}>
               <Typography variant="h5" align="center" color="secondary">
                 {"Nincs megjeleníthető elem"}
@@ -73,37 +73,37 @@ const User = () => {
             <>
               <Box style={{ marginBottom: "20px" }}>
                 <Grid container style={{ height: "40px" }}>
-                  <Grid item xs={6}>
+                  <Grid item xs={5}>
                     <Typography className={classes.listTitle}>
-                      {"Felhasználó neve"}
+                      {"Eszköz kategória neve"}
                     </Typography>
                   </Grid>
-                  <Grid item xs={6}>
+                  <Grid item xs={7}>
                     <Typography className={classes.listTitle}>
-                      {"Felhasználó típusa"}
+                      {"Eszköz kategória típusa"}
                     </Typography>
                   </Grid>
                 </Grid>
                 <Divider className={classes.divider} />
-                {listUsersQuery.data?.page.content.length &&
-                  listUsersQuery.data.page.content.map((user) => (
-                    <UserRow user={user} />
+                {listToolCategoryQuery.data?.page.content.length &&
+                  listToolCategoryQuery.data.page.content.map((category) => (
+                    <ToolCategoryRow category={category} />
                   ))}
               </Box>
-              {listUsersQuery.data &&
-                listUsersQuery?.data?.page.totalPages > 1 && (
+              {listToolCategoryQuery.data &&
+                listToolCategoryQuery?.data?.page.totalPages > 1 && (
                   <Pagination
                     style={{
                       display: "flex",
                       justifyContent: "center",
                       padding: "24px 0",
                     }}
-                    count={listUsersQuery?.data?.page.totalPages}
+                    count={listToolCategoryQuery?.data?.page.totalPages}
                     color="primary"
-                    page={listUsersQuery.data.page.number + 1}
+                    page={listToolCategoryQuery.data.page.number + 1}
                     onChange={(e, page) => {
                       sessionStorage.setItem(
-                        "UsersPageNumber",
+                        "ToolCategoryPageNumber",
                         JSON.stringify(page - 1)
                       );
                       setPage(page - 1);
@@ -117,4 +117,4 @@ const User = () => {
     </Container>
   );
 };
-export default User;
+export default ToolCategory;

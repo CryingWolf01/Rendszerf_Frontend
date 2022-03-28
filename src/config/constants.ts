@@ -1,4 +1,4 @@
-export const BACKEND_URL = "http://localhost:8081";
+export const BACKEND_URL = "http://localhost:8080";
 
 export const AUTH_TOKEN_KEY = "@auth_token";
 export const PROFILE_TYPE_KEY = "@profile_typs";

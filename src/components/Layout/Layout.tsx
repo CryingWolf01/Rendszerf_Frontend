@@ -43,7 +43,7 @@ export default function Layout({ children }: Props): JSX.Element {
   const { t } = useTranslation();
   const { pathname } = useLocation();
   const page = pathname.match(/^\/([^/]*)[^/]?/)?.[1] || "home";
-  const title = t([`drawer.${page}`, "drawer.notFound"]);
+  const title = t(`drawer.${page}`);
   return (
     <Box className={classes.pageWrapper}>
       <SideBar />

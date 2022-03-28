@@ -1,16 +1,17 @@
 import axios from "../../config/axios";
-import { Tool } from "../types";
+import { GenericListResponse, GenericPageResponse, GenericResponse } from "../common";
+import { ToolCategory } from "../types";
 
 const ENDPOINT = "/tool-category"
 
-export const saveTool = (param: Tool)=> 
+export const saveToolCategory = (param: ToolCategory)=> 
   axios.post(`${ENDPOINT}/save`, param);
 
-export const getToolById = (id: number)=> 
-  axios.get(`${ENDPOINT}/get-by-id?id=${id}`);
+export const getToolCategoryById = (id: number)=> 
+  axios.get<GenericResponse<ToolCategory>>(`${ENDPOINT}/get-by-id?id=${id}`);
 
-export const getToolsPageable = (page: number, size: number, search: string = "")=> 
-  axios.get(`${ENDPOINT}/pageable?page=${page}&size=${size}&search=${search}`);
+export const getToolCategoryPageable = (page: number, size: number, search: string = "")=> 
+  axios.get<GenericPageResponse<ToolCategory>>(`${ENDPOINT}/pageable?page=${page}&size=${size}&search=${search}`);
 
-export const getToolList = (search: string="")=> 
-  axios.get(`${ENDPOINT}/list?search=${search}`);
+export const getToolCategoryList = (search: string="")=> 
+  axios.get<GenericListResponse<ToolCategory>>(`${ENDPOINT}/list?search=${search}`);
