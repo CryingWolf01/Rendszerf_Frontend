@@ -1,7 +1,12 @@
-import { Box, IconButton, makeStyles, Tooltip, Typography } from "@material-ui/core";
+import {
+  IconButton, Tooltip,
+  Typography
+} from "@material-ui/core";
+import Box from "@material-ui/core/Box";
+import { makeStyles } from "@material-ui/core/styles";
 import { ArrowBack } from "@material-ui/icons";
 import { useTranslation } from "react-i18next";
-import {useNavigate, useLocation} from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import SideBar from "./Sidebar/Sidebar";
 
 type Props = {
@@ -32,15 +37,13 @@ const useStyles = makeStyles(
   }
 );
 
-const Layout = ({ children }: Props): JSX.Element=>{
+export default function Layout({ children }: Props): JSX.Element {
   const classes = useStyles();
-  const history = useNavigate();
-  const {t} = useTranslation();
-  const {pathname} = useLocation();
-
+  const navigate = useNavigate();
+  const { t } = useTranslation();
+  const { pathname } = useLocation();
   const page = pathname.match(/^\/([^/]*)[^/]?/)?.[1] || "home";
   const title = t([`drawer.${page}`, "drawer.notFound"]);
-
   return (
     <Box className={classes.pageWrapper}>
       <SideBar />
@@ -58,11 +61,11 @@ const Layout = ({ children }: Props): JSX.Element=>{
           padding="24px 24px 24px calc(125px + 24px)"
         >
           <Box display="flex">
-            {pathname !== "/home" && (
+            {pathname !== "/" && (
               <Tooltip title={t("common:button.back").toString()}>
                 <IconButton
                   style={{ marginRight: 20 }}
-                  onClick={() => history(-1)}
+                  onClick={() => navigate(-1)}
                 >
                   <ArrowBack />
                 </IconButton>
@@ -83,5 +86,3 @@ const Layout = ({ children }: Props): JSX.Element=>{
     </Box>
   );
 }
-
-export default Layout;

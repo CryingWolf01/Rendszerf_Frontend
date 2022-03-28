@@ -6,7 +6,7 @@ import {
   ListItemText,
 } from "@material-ui/core";
 import {useLocation } from "react-router-dom";
-import { NavLink } from "../Router";
+import { NavLink } from "../../Router";
 
 export type SidebarItemProps = {
   to: string;

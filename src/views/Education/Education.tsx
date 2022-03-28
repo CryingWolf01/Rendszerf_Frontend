@@ -1,12 +1,12 @@
 import { Container } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
 
-const Home = () => {
+const Education = () => {
   const { t } = useTranslation();
   return (
     <Container maxWidth="lg">
-      <>{t("home.title")}</>
+      <>{t("education.title")}</>
     </Container>
   );
 };
-export default Home;
+export default Education;

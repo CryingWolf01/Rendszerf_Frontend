@@ -1,6 +1,19 @@
 {
+  "notFound": "Az oldal nem található",
   "drawer":{
     "home": "Kezdőlap",
+    "user": "Felhasználók",
+    "tool": "Eszközök",
+    "education": "Oktatás",
     "notFound": ""
+  },
+  "user":{
+    "title": "Felhasználók"
+  },
+  "tool":{
+    "title": "Eszközök"
+  },
+  "education":{
+    "title":"Oktatás"
   }
 }

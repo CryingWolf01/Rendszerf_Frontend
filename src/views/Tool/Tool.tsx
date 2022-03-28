@@ -1,12 +1,12 @@
 import { Container } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
 
-const Home = () => {
+const Tool = ()=>{
   const { t } = useTranslation();
   return (
     <Container maxWidth="lg">
-      <>{t("home.title")}</>
+      <>{t("tool.title")}</>
     </Container>
   );
-};
-export default Home;
+}
+export default Tool;
