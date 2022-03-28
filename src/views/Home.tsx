@@ -5,7 +5,7 @@ const Home = () => {
   const { t } = useTranslation();
   return (
     <Container maxWidth="lg">
-      <>{t("home.title")}</>
+      <>{"Főoldal"}</>
     </Container>
   );
 };

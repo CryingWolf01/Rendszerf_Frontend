@@ -23,10 +23,10 @@ const SideBar = ()=>{
         }
       }
     >
-      <SidebarItem to="/" text={t("drawer.home")} icon={<Home />} />
-      <SidebarItem to="/user" text={t("drawer.user")} icon={<Group />} />
-      <SidebarItem to="/tool" text={t("drawer.tool")} icon={<Build />} />
-      <SidebarItem to="/education" text={t("drawer.education")} icon={<Book />} />
+      <SidebarItem to="/" text={"Főoldal"} icon={<Home />} />
+      <SidebarItem to="/user" text={"Felhasználók"} icon={<Group />} />
+      <SidebarItem to="/tool" text={"Eszközök"} icon={<Build />} />
+      <SidebarItem to="/education" text={"Education"} icon={<Book />} />
     </Drawer>
   );
 }

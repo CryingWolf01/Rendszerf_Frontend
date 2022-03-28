@@ -62,7 +62,7 @@ export default function Layout({ children }: Props): JSX.Element {
         >
           <Box display="flex">
             {pathname !== "/" && (
-              <Tooltip title={t("common:button.back").toString()}>
+              <Tooltip title={"Vissza"}>
                 <IconButton
                   style={{ marginRight: 20 }}
                   onClick={() => navigate(-1)}

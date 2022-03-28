@@ -5,7 +5,7 @@ const Education = () => {
   const { t } = useTranslation();
   return (
     <Container maxWidth="lg">
-      <>{t("education.title")}</>
+      <>{"Oktatás"}</>
     </Container>
   );
 };

@@ -22,7 +22,7 @@ const User = () => {
 
   return (
     <Container maxWidth="lg">
-      <>{t("home.title")}</>
+      <>{"Felhasználók"}</>
     </Container>
   );
 };

@@ -5,7 +5,7 @@ const Tool = ()=>{
   const { t } = useTranslation();
   return (
     <Container maxWidth="lg">
-      <>{t("tool.title")}</>
+      <>{"Eszközök"}</>
     </Container>
   );
 }
