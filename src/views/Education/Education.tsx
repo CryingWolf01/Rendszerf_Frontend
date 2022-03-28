@@ -48,7 +48,7 @@ const Education = () => {
                 marginRight: 8,
               }}
             />
-            {"Oktatás felvétele"}
+            {"Végzettség felvétele"}
           </Button>
         </Box>
       </Box>
@@ -75,12 +75,12 @@ const Education = () => {
                 <Grid container style={{ height: "40px" }}>
                   <Grid item xs={5}>
                     <Typography className={classes.listTitle}>
-                      {"Oktatás neve"}
+                      {"Végzettség neve"}
                     </Typography>
                   </Grid>
                   <Grid item xs={7}>
                     <Typography className={classes.listTitle}>
-                      {"Oktatás leírása"}
+                      {"Végzettség leírása"}
                     </Typography>
                   </Grid>
                 </Grid>

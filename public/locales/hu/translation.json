@@ -4,7 +4,7 @@
     "home": "Kezdőlap",
     "user": "Felhasználók",
     "tool": "Eszközök",
-    "education": "Oktatás",
+    "education": "Képzettség",
     "notFound": ""
   },
   "user":{
@@ -14,6 +14,6 @@
     "title": "Eszközök"
   },
   "education":{
-    "title":"Oktatás"
+    "title":"Végzettség"
   }
 }

@@ -12,6 +12,10 @@ import { useTranslation } from "react-i18next";
 import Tool from "./views/Tool/Tool";
 import Education from "./views/Education/Education";
 import ToolCategory from "./views/ToolCategory/ToolCategory";
+import UserCreate from "./views/User/UserCreate";
+import ToolCategoryCreate from "./views/ToolCategory/ToolCategoryCreate";
+import ToolCreate from "./views/Tool/ToolCreate";
+import EducationCreate from "./views/Education/EducationCreate";
 
 function App() {
   const { i18n } = useTranslation();
@@ -26,9 +30,13 @@ function App() {
               <Route path="/" element={<Home/>} />
               <Route path="/home" element={<Home/>} />
               <Route path="/user" element={<User/>} />
+              <Route path="/user-create" element={<UserCreate/>} />
               <Route path="/tool" element={<Tool/>} />
+              <Route path="/tool-create" element={<ToolCreate/>} />
               <Route path="/tool-category" element={<ToolCategory/>} />
+              <Route path="/tool-category-create" element={<ToolCategoryCreate/>} />
               <Route path="/education" element={<Education/>} />
+              <Route path="/education-create" element={<EducationCreate/>} />
               <Route element={<PageNotFound/>} />
             </Routes>
         </Layout>
