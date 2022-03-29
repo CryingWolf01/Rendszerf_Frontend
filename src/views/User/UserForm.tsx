@@ -30,6 +30,20 @@ const UserForm = () => {
           />
         </Grid>
         <Grid item xs={12}>
+          <TextField
+            label={"Jelszó"}
+            InputLabelProps={{ shrink: true, required: true }}
+            {...register("password", {
+              required: {
+                value: true,
+                message: t("common:validation.required"),
+              },
+            })}
+            error={formState.errors.password && true}
+            helperText={formState.errors?.password?.message}
+          />
+        </Grid>
+        <Grid item xs={12}>
           <Controller
             control={control}
             name="userType"

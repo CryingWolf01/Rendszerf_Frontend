@@ -17,6 +17,7 @@ export type ToolCategory = {
   description: string;
   category: string;
   maintenanceInterval: string;
+  parentCategory : any;
 };
 
 export type Education = {
