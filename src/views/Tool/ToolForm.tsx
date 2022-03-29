@@ -14,7 +14,7 @@ const ToolForm = () => {
       <Grid container spacing={2} alignContent="center" alignItems="center">
         <Grid item xs={12}>
           <TextField
-            label={"Eszköz neve"}
+            label={t("tool.formValues.name")}
             InputLabelProps={{ shrink: true, required: true }}
             {...register("name", {
               required: {
@@ -28,7 +28,7 @@ const ToolForm = () => {
         </Grid>
         <Grid item xs={12}>
           <TextField
-            label={"Eszköz azonosító száma"}
+            label={t("tool.formValues.identifier")}
             InputLabelProps={{ shrink: true, required: true }}
             {...register("identifier", {
               required: {
@@ -42,7 +42,7 @@ const ToolForm = () => {
         </Grid>
         <Grid item xs={12}>
           <TextField
-            label={"Eszköz leírása"}
+            label={t("tool.formValues.description")}
             InputLabelProps={{ shrink: true, required: true }}
             {...register("description", {
               required: {

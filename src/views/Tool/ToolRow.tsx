@@ -1,5 +1,4 @@
 import { Box, Grid, Typography } from "@material-ui/core";
-import { useTranslation } from "react-i18next";
 import { Tool } from "../../shared/types";
 
 type Props = {
@@ -7,7 +6,6 @@ type Props = {
 };
 
 const ToolRow = ({tool}: Props)=>{
-  const { t } = useTranslation();
   return (
     <Box style={{ marginBottom: "5px" }}>
       <Grid container style={{ marginTop: "5px" }}>

@@ -48,7 +48,7 @@ const Tool = ()=>{
                 marginRight: 8,
               }}
             />
-            {"Eszköz felvétele"}
+            {t("tool.create")}
           </Button>
         </Box>
       </Box>
@@ -63,10 +63,10 @@ const Tool = ()=>{
         </Box>
       ) : (
         <>
-          {listToolsQuery.data?.page.content === null ? (
+          {listToolsQuery.data?.page.numberOfElements === 0 ? (
             <Box style={{ marginBottom: "20px" }}>
               <Typography variant="h5" align="center" color="secondary">
-                {"Nincs megjeleníthető elem"}
+                {t("noItem")}
               </Typography>
             </Box>
           ) : (
@@ -75,17 +75,17 @@ const Tool = ()=>{
                 <Grid container style={{ height: "40px" }}>
                   <Grid item xs={3}>
                     <Typography className={classes.toolListTitle}>
-                      {"Eszköz neve"}
+                      {t("tool.formValues.name")}
                     </Typography>
                   </Grid>
                   <Grid item xs={3}>
                     <Typography className={classes.toolListTitle}>
-                      {"Eszköz azonosító száma"}
+                      {t("tool.formValues.identifier")}
                     </Typography>
                   </Grid>
                   <Grid item xs={6}>
                     <Typography className={classes.toolListTitle}>
-                      {"Eszköz leírása"}
+                      {t("tool.formValues.description")}
                     </Typography>
                   </Grid>
                 </Grid>

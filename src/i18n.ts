@@ -51,6 +51,7 @@ i18n
       "permission",
       "notification",
       "property",
+      "translation",
     ],
     fallbackLng: "hu",
     interpolation: {

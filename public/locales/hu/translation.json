@@ -1,19 +1,76 @@
-{
-  "notFound": "Az oldal nem található",
+{ 
   "drawer":{
     "home": "Kezdőlap",
     "user": "Felhasználók",
+    "user-create": "Felhasználó felvétele",
     "tool": "Eszközök",
-    "education": "Képzettség",
+    "tool-create": "Eszköz felvétele",
+    "tool-category": "Eszköz kategóriák",
+    "tool-category-create": "Eszköz kategória felvétele",
+    "education": "Végzettség",
+    "education-create": "Végzettség felvétele",
     "notFound": ""
   },
   "user":{
-    "title": "Felhasználók"
+    "title": "Felhasználók",
+    "subject": "felhasználó",
+    "create": "Felhasználók felvétele",
+    "modify": "Felhasználók módosítása",
+    "details": "Felhasználók adatai",
+    "formValues": {
+      "name": "Felhasználónév",
+      "userType": "Felhasználó típusa"
+    }
   },
   "tool":{
-    "title": "Eszközök"
+    "title": "Eszközök",
+    "subject": "eszköz",
+    "create": "Eszközök felvétele",
+    "modify": "Eszközök módosítása",
+    "details": "Eszközök adatai",
+    "formValues": {
+      "name": "Eszköz neve",
+      "description": "Eszköz leírása",
+      "identifier": "Eszköz azonosító száma"
+    }
   },
   "education":{
-    "title":"Végzettség"
-  }
+    "title": "Végzettségek",
+    "subject": "végzettség",
+    "create": "Végzettség felvétele",
+    "modify": "Végzettség módosítása",
+    "details": "Végzettség adatai",
+    "formValues": {
+      "name": "Végzettség neve",
+      "description": "Végzettség leírása"
+    }
+  },
+  "toolCategory":{
+    "title": "Eszköz kategóriák",
+    "subject": "eszköz kategória",
+    "create": "Eszköz kategória felvétele",
+    "modify": "Eszköz kategória módosítása",
+    "details": "Eszköz kategória adatai",
+    "formValues": {
+      "name": "Eszköz neve",
+      "description": "Eszköz leírása",
+      "maintenanceInterval": "Karbantartás intervalluma"
+    }
+  },
+  "relEducationToolCategory": {
+    "title": "Eszközökhöz szükséges végzettségek",
+    "formValues": {
+      "toolCategory": "Eszköz kategória",
+      "education": "Végzettség"
+    }
+  },
+  "relEducationUser": {
+    "title": "Felhasználó végzettségei",
+    "formValues": {
+      "user": "Felhasználó",
+      "education": "Végzettség"
+    }
+  },
+  "notFound": "Az oldal nem található",
+  "noItem": "Nincs megjeleníthető elem"
 }

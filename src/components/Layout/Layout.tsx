@@ -43,7 +43,7 @@ export default function Layout({ children }: Props): JSX.Element {
   const { t } = useTranslation();
   const { pathname } = useLocation();
   const page = pathname.match(/^\/([^/]*)[^/]?/)?.[1] || "home";
-  const title = t(`drawer.${page}`);
+  const title = t([`drawer.${page}` || "drawer.notFound"]);
   return (
     <Box className={classes.pageWrapper}>
       <SideBar />
@@ -62,7 +62,7 @@ export default function Layout({ children }: Props): JSX.Element {
         >
           <Box display="flex">
             {pathname !== "/" && (
-              <Tooltip title={"Vissza"}>
+              <Tooltip title={t("common:button.back").toString()}>
                 <IconButton
                   style={{ marginRight: 20 }}
                   onClick={() => navigate(-1)}

@@ -16,15 +16,23 @@ export type ToolCategory = {
   id: number;
   description: string;
   category: string;
-  maintenanceInterval: MaintenanceInterval;
-};
-
-export type MaintenanceInterval = {
-  id: number;
+  maintenanceInterval: string;
 };
 
 export type Education = {
   id: number;
   description: string;
   name: string;
-}
+};
+
+export type RelEducationToolCategory = {
+  id: number;
+  education: Education;
+  toolCategory: ToolCategory;
+};
+
+export type RelEducationUser = {
+  id: number;
+  education: Education;
+  user: User;
+};

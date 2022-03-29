@@ -15,7 +15,9 @@ const UserRow = ({user}: Props)=>{
           <Typography color="secondary">{user.username}</Typography>
         </Grid>
         <Grid item xs={6} style={{ marginTop: "10px" }}>
-          <Typography color="secondary">{user.userType}</Typography>
+          <Typography color="secondary">
+            {t(`common:userTypes.${user.userType}`)}
+          </Typography>
         </Grid>
       </Grid>
     </Box>

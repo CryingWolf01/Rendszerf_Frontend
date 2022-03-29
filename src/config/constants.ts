@@ -9,3 +9,18 @@ export const NUMBER_FORMAT = /^[-+]?[0-9]?\.?[0-9]+$/;
 
 export const SIDEBAR_WIDTH = 73;
 export const HEADER_HEIGHT = 78;
+
+export const MAINTENANCE_INTERVAL = [
+  "WEEK",
+  "MONTH",
+  "QUARTER",
+  "HALF_YEAR",
+  "YEAR"
+];
+
+export const USER_TYPES = [
+  "ADMIN",
+  "TOOL_MANAGER",
+  "OPERATOR",
+  "REPAIRMAN"
+];
