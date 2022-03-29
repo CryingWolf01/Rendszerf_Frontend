@@ -5,7 +5,7 @@ import { Tool } from "../types";
 const ENDPOINT = "/tool"
 
 export const saveTool = (param: Tool)=> 
-  axios.post(`${ENDPOINT}/save`, param);
+  axios.post(`${ENDPOINT}/save`, {param});
 
 export const getToolById = (id: number)=> 
   axios.get<GenericResponse<Tool>>(`${ENDPOINT}/get-by-id?id=${id}`);
