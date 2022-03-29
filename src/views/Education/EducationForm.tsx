@@ -1,22 +1,20 @@
 import {
-  Container, Grid,
-  MenuItem,
-  TextField
+  Container, Grid, TextField
 } from "@material-ui/core";
-import { Controller, useFormContext } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { Education } from "../../shared/types";
 
 const EducationForm = () => {
   const { t } = useTranslation();
-  const { formState, register, control } = useFormContext<Education>();
+  const { formState, register } = useFormContext<Education>();
 
   return (
     <Container maxWidth="sm">
       <Grid container spacing={2} alignContent="center" alignItems="center">
         <Grid item xs={12}>
           <TextField
-            label={"Képzettség neve"}
+            label={t("education.formValues.name")}
             InputLabelProps={{ shrink: true, required: true }}
             {...register("name", {
               required: {
@@ -30,7 +28,7 @@ const EducationForm = () => {
         </Grid>
         <Grid item xs={12}>
           <TextField
-            label={"Képzettség leírása"}
+            label={t("education.formValues.description")}
             InputLabelProps={{ shrink: true, required: true }}
             {...register("description", {
               required: {

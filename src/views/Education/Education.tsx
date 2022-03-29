@@ -48,7 +48,7 @@ const Education = () => {
                 marginRight: 8,
               }}
             />
-            {"Végzettség felvétele"}
+            {t("education.create")}
           </Button>
         </Box>
       </Box>
@@ -63,10 +63,10 @@ const Education = () => {
         </Box>
       ) : (
         <>
-          {listEducationsQuery.data?.page.content === null ? (
+          {listEducationsQuery.data?.page.numberOfElements === 0 ? (
             <Box style={{ marginBottom: "20px" }}>
               <Typography variant="h5" align="center" color="secondary">
-                {"Nincs megjeleníthető elem"}
+                {t("noItem")}
               </Typography>
             </Box>
           ) : (
@@ -75,12 +75,12 @@ const Education = () => {
                 <Grid container style={{ height: "40px" }}>
                   <Grid item xs={5}>
                     <Typography className={classes.listTitle}>
-                      {"Végzettség neve"}
+                      {t("education.formValues.name")}
                     </Typography>
                   </Grid>
                   <Grid item xs={7}>
                     <Typography className={classes.listTitle}>
-                      {"Végzettség leírása"}
+                      {t("education.formValues.description")}
                     </Typography>
                   </Grid>
                 </Grid>

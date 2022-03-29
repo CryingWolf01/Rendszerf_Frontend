@@ -1,0 +1,46 @@
+{
+   "button": {
+    "save": "Mentés",
+    "create": "Létrehozás",
+    "delete": "Törlés",
+    "submit": "Küldés",
+    "cancel": "Mégse",
+    "back": "Vissza",
+    "search": "Keresés",
+    "backToLogin": "Vissza a bejelentkezéshez"
+  },
+
+  "maintenanceInterval": {
+    "WEEK": "Hetente",
+    "MONTH": "Havonta",
+    "QUARTER": "Negyedévente",
+    "HALF_YEAR": "Félévente",
+    "YEAR": "Évente"
+  },
+
+  "userTypes":{
+    "ADMIN": "Adminisztrátor",
+    "TOOL_MANAGER": "Eszközfelelős",
+    "OPERATOR": "Operátor",
+    "REPAIRMAN": "Karbantartó"
+  },
+
+  "notification": {
+    "update": {
+      "success": "Sikeres {{subject}} módosítás!",
+      "failure": "Sikertelen {{subject}} módosítás!"
+    },
+    "create": {
+      "success": "Sikeres {{subject}} létrehozás!",
+      "failure": "Sikertelen {{subject}} létrehozás!"
+    },
+    "delete": {
+      "success": "Sikeres {{subject}} törlés!",
+      "failure": "Sikertelen {{subject}} törlés!"
+    }
+  },
+
+  "validation": {
+    "required": "A mező megadása kötelező!"
+  }
+}

@@ -5,6 +5,7 @@ import {
 } from "@material-ui/core";
 import { Controller, useFormContext } from "react-hook-form";
 import { useTranslation } from "react-i18next";
+import { USER_TYPES } from "../../config/constants";
 import { User } from "../../shared/types";
 
 const UserForm = () => {
@@ -16,7 +17,7 @@ const UserForm = () => {
       <Grid container spacing={2} alignContent="center" alignItems="center">
         <Grid item xs={12}>
           <TextField
-            label={"Felhasználónév"}
+            label={t("user.formValues.name")}
             InputLabelProps={{ shrink: true, required: true }}
             {...register("username", {
               required: {
@@ -29,33 +30,32 @@ const UserForm = () => {
           />
         </Grid>
         <Grid item xs={12}>
-            <Controller
-              control={control}
-              name="userType"
-              defaultValue={"default"}
-              rules={{ required: t("validation.required").toString() }}
-              render={({ field: { onChange, value } }) => (
-                <TextField
-                  label={"Felhasználó típusa"}
-                  InputLabelProps={{ shrink: true, required: true }}
-                  defaultValue="default"
-                  SelectProps={{ displayEmpty: true }}
-                  select
-                  value={value}
-                  onChange={onChange}
-                  error={formState.errors.userType && true}
-                  helperText={formState.errors.userType?.message}
-                >
-                  <MenuItem disabled value="default">
-                    {"Kérem válasszon..."}
+          <Controller
+            control={control}
+            name="userType"
+            defaultValue={"ADMIN"}
+            rules={{ required: t("validation.required").toString() }}
+            render={({ field: { onChange, value } }) => (
+              <TextField
+                label={t("user.formValues.userType")}
+                InputLabelProps={{ shrink: true, required: true }}
+                defaultValue="ADMIN"
+                SelectProps={{ displayEmpty: true }}
+                select
+                value={value}
+                onChange={onChange}
+                error={formState.errors.userType && true}
+                helperText={formState.errors.userType?.message}
+              >
+                {USER_TYPES.map((type, index) => (
+                  <MenuItem key={index} value={type}>
+                    {t(`common:userTypes.${type}`)}
                   </MenuItem>
-                  <MenuItem value="Eszközfelelős">Eszközfelelős</MenuItem>
-                  <MenuItem value="Operátor">Operátor</MenuItem>
-                  <MenuItem value="Karbantartó">Karbantartó</MenuItem>
-                </TextField>
-              )}
-            />
-          </Grid>
+                ))}
+              </TextField>
+            )}
+          />
+        </Grid>
       </Grid>
     </Container>
   );

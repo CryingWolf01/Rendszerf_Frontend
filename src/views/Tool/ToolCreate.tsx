@@ -21,14 +21,24 @@ const ToolCreate = () => {
     {
       onSuccess: () => {
         history(-1);
-        enqueueSnackbar(t("user.createSuccess"), {
-          variant: "success",
-        });
+        enqueueSnackbar(
+          t("common:notification.create.success", {
+            subject: t("tool.subject"),
+          }),
+          {
+            variant: "success",
+          }
+        );
       },
       onError: () => {
-        enqueueSnackbar(t("user.createFailure"), {
-          variant: "error",
-        });
+        enqueueSnackbar(
+          t("common:notification.create.failure", {
+            subject: t("tool.subject"),
+          }),
+          {
+            variant: "error",
+          }
+        );
       },
     }
   );
@@ -43,10 +53,10 @@ const ToolCreate = () => {
             <ToolForm />
             <Box display="flex" justifyContent="center" m={2} gridGap={8}>
               <Button color="primary" variant="text" onClick={()=>history(-1)}>
-                {"Mégse"}
+                {t("common:button.cancel")}
               </Button>
               <Button type="submit" color="primary">
-                {"Mentés"}
+                {t("common:button.save")}
               </Button>
             </Box>
           </form>

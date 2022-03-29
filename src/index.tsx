@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import { Suspense, StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import {BrowserRouter} from "react-router-dom";
@@ -10,9 +10,10 @@ import ScrollToTop from './components/ScrollToTop';
 import { QueryClientProvider } from 'react-query';
 import queryClient from './config/query';
 import PageLoading from './components/PageLoading';
+import "./i18n";
 
 ReactDOM.render(
-  <React.StrictMode>
+  <StrictMode>
     <BrowserRouter>
       <ThemeProvider theme={theme}>
         <CssBaseline />
@@ -26,6 +27,6 @@ ReactDOM.render(
           </QueryClientProvider>
       </ThemeProvider>
     </BrowserRouter>
-  </React.StrictMode>,
+  </StrictMode>,
   document.getElementById('root')
 );

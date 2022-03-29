@@ -48,7 +48,7 @@ const User = () => {
                 marginRight: 8,
               }}
             />
-            {"Felhasználó felvétele"}
+            {t("user.create")}
           </Button>
         </Box>
       </Box>
@@ -66,7 +66,7 @@ const User = () => {
           {listUsersQuery.data?.page.content === null ? (
             <Box style={{ marginBottom: "20px" }}>
               <Typography variant="h5" align="center" color="secondary">
-                {"Nincs megjeleníthető elem"}
+                {t("noItem")}
               </Typography>
             </Box>
           ) : (
@@ -75,12 +75,12 @@ const User = () => {
                 <Grid container style={{ height: "40px" }}>
                   <Grid item xs={6}>
                     <Typography className={classes.listTitle}>
-                      {"Felhasználó neve"}
+                      {t("user.formValues.name")}
                     </Typography>
                   </Grid>
                   <Grid item xs={6}>
                     <Typography className={classes.listTitle}>
-                      {"Felhasználó típusa"}
+                      {t("user.formValues.userType")}
                     </Typography>
                   </Grid>
                 </Grid>

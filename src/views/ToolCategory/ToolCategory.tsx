@@ -48,7 +48,7 @@ const ToolCategory = () => {
                 marginRight: 8,
               }}
             />
-            {"Eszköz kategória felvétele"}
+            {t("toolCategory.create")}
           </Button>
         </Box>
       </Box>
@@ -63,24 +63,29 @@ const ToolCategory = () => {
         </Box>
       ) : (
         <>
-          {listToolCategoryQuery.data?.page.content === null ? (
+          {listToolCategoryQuery.data?.page.numberOfElements === 0 ? (
             <Box style={{ marginBottom: "20px" }}>
               <Typography variant="h5" align="center" color="secondary">
-                {"Nincs megjeleníthető elem"}
+                {t("noItem")}
               </Typography>
             </Box>
           ) : (
             <>
               <Box style={{ marginBottom: "20px" }}>
                 <Grid container style={{ height: "40px" }}>
-                  <Grid item xs={5}>
+                  <Grid item xs={3}>
                     <Typography className={classes.listTitle}>
-                      {"Eszköz kategória neve"}
+                      {t("toolCategory.formValues.name")}
                     </Typography>
                   </Grid>
-                  <Grid item xs={7}>
+                  <Grid item xs={3}>
                     <Typography className={classes.listTitle}>
-                      {"Eszköz kategória típusa"}
+                      {t("toolCategory.formValues.maintenanceInterval")}
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={6}>
+                    <Typography className={classes.listTitle}>
+                      {t("toolCategory.formValues.description")}
                     </Typography>
                   </Grid>
                 </Grid>
