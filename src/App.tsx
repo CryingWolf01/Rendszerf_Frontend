@@ -16,6 +16,12 @@ import UserCreate from "./views/User/UserCreate";
 import ToolCategoryCreate from "./views/ToolCategory/ToolCategoryCreate";
 import ToolCreate from "./views/Tool/ToolCreate";
 import EducationCreate from "./views/Education/EducationCreate";
+import UserModify from "./views/User/UserModify";
+import UserDetails from "./views/User/UserDetails";
+import ToolModify from "./views/Tool/ToolModify";
+import ToolCategoryModify from "./views/ToolCategory/ToolCategoryModify";
+import ToolCategoryDetails from "./views/ToolCategory/ToolCategoryDetails";
+import EducationModify from "./views/Education/EducationModify";
 
 function App() {
   const { i18n } = useTranslation();
@@ -26,19 +32,30 @@ function App() {
     >
       <Suspense fallback={<LayoutLoading />}>
         <Layout>
-            <Routes>
-              <Route path="/" element={<Home/>} />
-              <Route path="/home" element={<Home/>} />
-              <Route path="/user" element={<User/>} />
-              <Route path="/user-create" element={<UserCreate/>} />
-              <Route path="/tool" element={<Tool/>} />
-              <Route path="/tool-create" element={<ToolCreate/>} />
-              <Route path="/tool-category" element={<ToolCategory/>} />
-              <Route path="/tool-category-create" element={<ToolCategoryCreate/>} />
-              <Route path="/education" element={<Education/>} />
-              <Route path="/education-create" element={<EducationCreate/>} />
-              <Route element={<PageNotFound/>} />
-            </Routes>
+          <Routes>
+            {/*Default Routes*/}
+            <Route element={<PageNotFound/>} />
+            <Route path="/" element={<Home/>} />
+            <Route path="/home" element={<Home/>} />
+            {/*Users*/}
+            <Route path="/user" element={<User/>} />
+            <Route path="/user-create" element={<UserCreate/>} />
+            <Route path="/user-modify" element={<UserModify />} />
+            <Route path="/user-details" element={<UserDetails/>} />
+            {/*Tools*/}
+            <Route path="/tool" element={<Tool/>} />
+            <Route path="/tool-create" element={<ToolCreate />} />
+            <Route path="/tool-modify" element={<ToolModify/>} />
+            {/*ToolCategories*/}
+            <Route path="/tool-category" element={<ToolCategory/>} />
+            <Route path="/tool-category-create" element={<ToolCategoryCreate />} />
+            <Route path="/tool-category-modify" element={<ToolCategoryModify />} />
+            <Route path="/tool-category-details" element={<ToolCategoryDetails/>} />
+            {/*Education*/}
+            <Route path="/education" element={<Education/>} />
+            <Route path="/education-create" element={<EducationCreate />} />
+            <Route path="/education-modify" element={<EducationModify/>} />
+          </Routes>
         </Layout>
       </Suspense>
     </MuiPickersUtilsProvider>

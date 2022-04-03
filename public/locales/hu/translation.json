@@ -3,10 +3,14 @@
     "home": "Kezdőlap",
     "user": "Felhasználók",
     "user-create": "Felhasználó felvétele",
+    "user-modify": "Felhasználó módosítása",
+    "user-details": "Felhasználó adatai",
     "tool": "Eszközök",
     "tool-create": "Eszköz felvétele",
     "tool-category": "Eszköz kategóriák",
     "tool-category-create": "Eszköz kategória felvétele",
+    "tool-category-modify": "Eszköz kategória módosítása",
+    "tool-category-details": "Eszköz kategória adatai",
     "education": "Végzettség",
     "education-create": "Végzettség felvétele",
     "notFound": ""
@@ -19,7 +23,8 @@
     "details": "Felhasználók adatai",
     "formValues": {
       "name": "Felhasználónév",
-      "userType": "Felhasználó típusa"
+      "userType": "Felhasználó típusa",
+      "password": "Jelszó"
     }
   },
   "tool":{

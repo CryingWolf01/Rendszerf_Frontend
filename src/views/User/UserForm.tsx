@@ -31,7 +31,7 @@ const UserForm = () => {
         </Grid>
         <Grid item xs={12}>
           <TextField
-            label={"Jelszó"}
+            label={t("user.formValues.password")}
             InputLabelProps={{ shrink: true, required: true }}
             {...register("password", {
               required: {
