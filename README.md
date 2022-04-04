@@ -1,3 +1,8 @@
+Mielőtt futtatjátok a rendszert:
+  Legyen feltelepítve a NodeJs és a Yarn. (Elvileg NodeJs feltelepíti azt is, ha nem, akkor manuálisan kell)
+  A lehúzott github repo-t nyissátok meg Visual Studio Code-al, és ott a terminálban írjátok be a "yarn" parancsot és nyomjatok entert.
+  Ez után lehúzza a node-modules mappa tartalmát (kb. 69000 fájl) és a "yarn start" paranccsal futtathatjátok.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
