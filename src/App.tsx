@@ -24,6 +24,7 @@ import ToolCategoryDetails from "./views/ToolCategory/ToolCategoryDetails";
 import EducationModify from "./views/Education/EducationModify";
 import EducationToolCategoryCreate from "./views/ToolCategory/components/EducationToolCategoryCreate";
 import UserEducationCreate from "./views/User/components/UserEducationCreate";
+import Login from "./views/Login/Login";
 
 function App() {
   const { i18n } = useTranslation();
@@ -38,7 +39,8 @@ function App() {
             {/*Default Routes*/}
             <Route element={<PageNotFound/>} />
             <Route path="/" element={<Home/>} />
-            <Route path="/home" element={<Home/>} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/login" element={<Login/>}/>
             {/*Users*/}
             <Route path="/user" element={<User/>} />
             <Route path="/user-create" element={<UserCreate/>} />

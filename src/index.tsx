@@ -11,22 +11,26 @@ import { QueryClientProvider } from 'react-query';
 import queryClient from './config/query';
 import PageLoading from './components/PageLoading';
 import "./i18n";
+import { Provider } from "react-redux";
+import store from './config/store';
 
 ReactDOM.render(
   <StrictMode>
-    <BrowserRouter>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-          <QueryClientProvider client={queryClient}>
-            <SnackbarProvider>
-              <Suspense fallback={<PageLoading />}>
-                <ScrollToTop />
-                <App />
-              </Suspense>
-            </SnackbarProvider>
-          </QueryClientProvider>
-      </ThemeProvider>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+            <QueryClientProvider client={queryClient}>
+              <SnackbarProvider>
+                <Suspense fallback={<PageLoading />}>
+                  <ScrollToTop />
+                  <App />
+                </Suspense>
+              </SnackbarProvider>
+            </QueryClientProvider>
+        </ThemeProvider>
+      </BrowserRouter>
+    </Provider>
   </StrictMode>,
   document.getElementById('root')
 );

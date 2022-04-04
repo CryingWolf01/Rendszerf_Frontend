@@ -1,5 +1,6 @@
 { 
   "drawer":{
+    "login": "Bejelentkezés",
     "home": "Kezdőlap",
     "user": "Felhasználók",
     "user-create": "Felhasználó felvétele",
@@ -16,6 +17,12 @@
     "education": "Végzettség",
     "education-create": "Végzettség felvétele",
     "notFound": ""
+  },
+  "login": {
+    "appName": "Rendszerfejlesztés",
+    "title":"Bejelentkezés",
+    "username": "Felhasználónév",
+    "password": "Jelszó"
   },
   "user":{
     "title": "Felhasználók",
