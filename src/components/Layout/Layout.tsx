@@ -6,7 +6,10 @@ import Box from "@material-ui/core/Box";
 import { makeStyles } from "@material-ui/core/styles";
 import { ArrowBack } from "@material-ui/icons";
 import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
+import { RootState } from "../../config/store";
+import Login from "../../views/Login/Login";
 import SideBar from "./Sidebar/Sidebar";
 
 type Props = {
@@ -44,6 +47,14 @@ export default function Layout({ children }: Props): JSX.Element {
   const { pathname } = useLocation();
   const page = pathname.match(/^\/([^/]*)[^/]?/)?.[1] || "home";
   const title = t([`drawer.${page}` || "drawer.notFound"]);
+  const { isAuthenticated } = useSelector(
+    (state: RootState) => state.authentication
+  );
+
+  if (!isAuthenticated) {
+    return <Login/>;
+  }
+
   return (
     <Box className={classes.pageWrapper}>
       <SideBar />
