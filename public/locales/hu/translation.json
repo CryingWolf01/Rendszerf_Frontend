@@ -5,12 +5,14 @@
     "user-create": "Felhasználó felvétele",
     "user-modify": "Felhasználó módosítása",
     "user-details": "Felhasználó adatai",
+    "education-user-create": "Végzettség felvétele",
     "tool": "Eszközök",
     "tool-create": "Eszköz felvétele",
     "tool-category": "Eszköz kategóriák",
     "tool-category-create": "Eszköz kategória felvétele",
     "tool-category-modify": "Eszköz kategória módosítása",
     "tool-category-details": "Eszköz kategória adatai",
+    "education-tool-category-create": "Eszközhöz szükséges végzettség felvétele",
     "education": "Végzettség",
     "education-create": "Végzettség felvétele",
     "notFound": ""
@@ -64,6 +66,8 @@
   },
   "relEducationToolCategory": {
     "title": "Eszközökhöz szükséges végzettségek",
+    "subject": "végzettség",
+    "create": "Eszközhöz szükséges végzettség felvétele",
     "formValues": {
       "toolCategory": "Eszköz kategória",
       "education": "Végzettség"
@@ -71,6 +75,8 @@
   },
   "relEducationUser": {
     "title": "Felhasználó végzettségei",
+    "subject": "végzettség",
+    "create": "Végzettség hozzáadása",
     "formValues": {
       "user": "Felhasználó",
       "education": "Végzettség"

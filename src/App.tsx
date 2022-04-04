@@ -22,6 +22,8 @@ import ToolModify from "./views/Tool/ToolModify";
 import ToolCategoryModify from "./views/ToolCategory/ToolCategoryModify";
 import ToolCategoryDetails from "./views/ToolCategory/ToolCategoryDetails";
 import EducationModify from "./views/Education/EducationModify";
+import EducationToolCategoryCreate from "./views/ToolCategory/components/EducationToolCategoryCreate";
+import UserEducationCreate from "./views/User/components/UserEducationCreate";
 
 function App() {
   const { i18n } = useTranslation();
@@ -41,7 +43,8 @@ function App() {
             <Route path="/user" element={<User/>} />
             <Route path="/user-create" element={<UserCreate/>} />
             <Route path="/user-modify" element={<UserModify />} />
-            <Route path="/user-details" element={<UserDetails/>} />
+            <Route path="/user-details" element={<UserDetails />} />
+            <Route path="/education-user-create" element={<UserEducationCreate/>} />
             {/*Tools*/}
             <Route path="/tool" element={<Tool/>} />
             <Route path="/tool-create" element={<ToolCreate />} />
@@ -50,7 +53,8 @@ function App() {
             <Route path="/tool-category" element={<ToolCategory/>} />
             <Route path="/tool-category-create" element={<ToolCategoryCreate />} />
             <Route path="/tool-category-modify" element={<ToolCategoryModify />} />
-            <Route path="/tool-category-details" element={<ToolCategoryDetails/>} />
+            <Route path="/tool-category-details" element={<ToolCategoryDetails />} />
+            <Route path="/education-tool-category-create" element={<EducationToolCategoryCreate />} />
             {/*Education*/}
             <Route path="/education" element={<Education/>} />
             <Route path="/education-create" element={<EducationCreate />} />

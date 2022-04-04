@@ -1,10 +1,11 @@
-import { Container, Typography, Grid, makeStyles, Box, Divider } from "@material-ui/core";
+import { Container, Typography, Grid, makeStyles, Box, Divider, Button } from "@material-ui/core";
+import { Add } from "@material-ui/icons";
 import { useTranslation } from "react-i18next";
 import { useQuery } from "react-query";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { getEducationToolCategoryList } from "../../shared/network/releducationtoolcategory.api";
 import { getToolCategoryById } from "../../shared/network/tool_category.api";
-import EducationToolCategoryRow from "./EducationToolCategoryRow";
+import EducationToolCategoryRow from "./components/EducationToolCategoryRow";
 
 const useStyles = makeStyles({
   title: {
@@ -58,7 +59,7 @@ const ToolCategoryDetails = () => {
           <Grid container justifyContent="center">
             <Grid item xs={6}>
               <Typography className={classes.title}>
-                {t("toolCategory.name")}
+                {t("toolCategory.formValues.name")}
               </Typography>
               <Typography className={classes.data}>
                 {toolCategoryQuery.data?.category || ""}
@@ -66,7 +67,7 @@ const ToolCategoryDetails = () => {
             </Grid>
             <Grid item xs={6}>
               <Typography className={classes.title}>
-                {t("toolCategory.maintenanceInterval")}
+                {t("toolCategory.formValues.maintenanceInterval")}
               </Typography>
               <Typography className={classes.data}>
                 {toolCategoryQuery.data?.maintenanceInterval || ""}
@@ -74,7 +75,7 @@ const ToolCategoryDetails = () => {
             </Grid>
             <Grid item xs={12}>
               <Typography className={classes.title}>
-                {t("toolCategory.description")}
+                {t("toolCategory.formValues.description")}
               </Typography>
               <Typography className={classes.data}>
                 {toolCategoryQuery.data?.description}
@@ -85,6 +86,19 @@ const ToolCategoryDetails = () => {
       ) : (
         <></>
       )}
+      <Box display="flex" justifyContent="flex-end">
+        <Box>
+          <Button component={Link} to={`/education-tool-category-create?id=${id}`}>
+            <Add
+              style={{
+                fontSize: "20px",
+                marginRight: 8,
+              }}
+            />
+            {t("relEducationToolCategory.create")}
+          </Button>
+        </Box>
+      </Box>
       {educationToolCategoriesQuery.data?.length === 0 ? (
         <Box style={{ marginBottom: "20px" }}>
           <Typography variant="h5" align="center" color="secondary">
@@ -95,7 +109,7 @@ const ToolCategoryDetails = () => {
         <>
           <Box style={{ marginBottom: "20px" }}>
             <Grid container style={{ height: "40px" }}>
-              <Grid item xs={12}>
+              <Grid item xs={11}>
                 <Typography className={classes.listTitle}>
                   {t("relEducationToolCategory.formValues.education")}
                 </Typography>
