@@ -9,6 +9,7 @@
     "education-user-create": "Végzettség felvétele",
     "tool": "Eszközök",
     "tool-create": "Eszköz felvétele",
+    "tool-modify": "Eszköz módosítása",
     "tool-category": "Eszköz kategóriák",
     "tool-category-create": "Eszköz kategória felvétele",
     "tool-category-modify": "Eszköz kategória módosítása",
@@ -16,6 +17,7 @@
     "education-tool-category-create": "Eszközhöz szükséges végzettség felvétele",
     "education": "Végzettség",
     "education-create": "Végzettség felvétele",
+    "education-modify": "Végzettség módosítása",
     "notFound": ""
   },
   "login": {

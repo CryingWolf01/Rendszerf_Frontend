@@ -10,6 +10,7 @@ export type Tool = {
   description: string;
   identifier: string;
   name: string;
+  toolCategory: any;
 };
 
 export type ToolCategory = {

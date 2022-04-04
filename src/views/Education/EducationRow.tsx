@@ -19,7 +19,7 @@ const EducationRow = ({ education }: Props) => {
         <Grid item xs={6} style={{ marginTop: "10px" }}>
           <Typography color="secondary">{education.description}</Typography>
         </Grid>
-        <Grid item xs={1} style={{ marginTop: "10px" }}>
+        <Grid item container xs={1} style={{ marginTop: "10px" }} justifyContent="flex-end">
           <Tooltip title={t("education.modify").toString()}>
             <IconButton
               size="small"

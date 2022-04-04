@@ -71,7 +71,7 @@ const EducationModify = () => {
         ) : (
           <FormProvider {...form}>
             <form onSubmit={form.handleSubmit(onSubmitModify)}>
-              <EducationForm />
+              <EducationForm education={educationQuery.data}/>
               <Box display="flex" justifyContent="center" m={2} gridGap={8}>
                 <Button color="primary" variant="text" onClick={() => history(-1)}>
                   {t("common:button.cancel")}

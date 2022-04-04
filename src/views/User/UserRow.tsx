@@ -21,7 +21,7 @@ const UserRow = ({user}: Props)=>{
             {t(`common:userTypes.${user.userType}`)}
           </Typography>
         </Grid>
-        <Grid item xs={2} style={{ marginTop: "10px" }}>
+        <Grid item container xs={2} style={{ marginTop: "10px" }} justifyContent="flex-end">
           <Tooltip title={t("user.modify").toString()}>
             <IconButton
               size="small"

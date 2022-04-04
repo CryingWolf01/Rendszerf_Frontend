@@ -4,8 +4,7 @@ import { FormProvider, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { useQuery } from "react-query";
 import { useLocation, useNavigate } from "react-router-dom";
-import { getEducationById } from "../../shared/network/education.api";
-import { saveTool } from "../../shared/network/tool.api";
+import { getToolById, saveTool } from "../../shared/network/tool.api";
 import { Tool } from "../../shared/types";
 import ToolForm from "./ToolForm";
 
@@ -20,7 +19,7 @@ const ToolModify = () => {
 
   const toolQuery = useQuery(["toolQuery", id], async () => {
     if (id) {
-      const { data } = await getEducationById(Number.parseInt(id));
+      const { data } = await getToolById(Number.parseInt(id));
       return data.item;
     }
 
@@ -72,7 +71,7 @@ const ToolModify = () => {
         ) : (
           <FormProvider {...form}>
             <form onSubmit={form.handleSubmit(onSubmitModify)}>
-              <ToolForm />
+              <ToolForm tool={toolQuery.data}/>
               <Box display="flex" justifyContent="center" m={2} gridGap={8}>
                 <Button color="primary" variant="text" onClick={() => history(-1)}>
                   {t("common:button.cancel")}

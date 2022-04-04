@@ -5,6 +5,7 @@ import {
 import Box from "@material-ui/core/Box";
 import { makeStyles } from "@material-ui/core/styles";
 import { ArrowBack } from "@material-ui/icons";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -50,9 +51,10 @@ export default function Layout({ children }: Props): JSX.Element {
   const { isAuthenticated } = useSelector(
     (state: RootState) => state.authentication
   );
+  const [isLoggedIn, setLoggedIn] = useState(false);
 
-  if (!isAuthenticated) {
-    return <Login/>;
+  if (/*isAuthenticated*/isLoggedIn) {
+    return <Login setLoggedIn={setLoggedIn}/>;
   }
 
   return (

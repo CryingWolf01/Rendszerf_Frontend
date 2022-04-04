@@ -14,4 +14,4 @@ export const getEducationToolCategoriesPageable = (page: number, size: number, s
   axios.get<GenericPageResponse<RelEducationToolCategory>>(`${ENDPOINT}/pageable?page=${page}&size=${size}&search=${search}`);
 
 export const getEducationToolCategoryList = (search: string="")=> 
-  axios.get<GenericListResponse<RelEducationToolCategory>>(`${ENDPOINT}/pageable?search=${search}`);
+  axios.get<GenericListResponse<RelEducationToolCategory>>(`${ENDPOINT}/list?search=${search}`);

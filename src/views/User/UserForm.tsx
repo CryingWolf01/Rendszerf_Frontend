@@ -8,7 +8,11 @@ import { useTranslation } from "react-i18next";
 import { USER_TYPES } from "../../config/constants";
 import { User } from "../../shared/types";
 
-const UserForm = () => {
+type Props = {
+  user?: User;
+}
+
+const UserForm = ({user}:Props) => {
   const { t } = useTranslation();
   const { formState, register, control } = useFormContext<User>();
 
@@ -18,6 +22,7 @@ const UserForm = () => {
         <Grid item xs={12}>
           <TextField
             label={t("user.formValues.name")}
+            defaultValue={user?.username}
             InputLabelProps={{ shrink: true, required: true }}
             {...register("username", {
               required: {
@@ -32,6 +37,7 @@ const UserForm = () => {
         <Grid item xs={12}>
           <TextField
             label={t("user.formValues.password")}
+            defaultValue={user?.password}
             InputLabelProps={{ shrink: true, required: true }}
             {...register("password", {
               required: {
@@ -47,7 +53,7 @@ const UserForm = () => {
           <Controller
             control={control}
             name="userType"
-            defaultValue={"ADMIN"}
+            defaultValue={user?.userType || "ADMIN"}
             rules={{ required: t("validation.required").toString() }}
             render={({ field: { onChange, value } }) => (
               <TextField

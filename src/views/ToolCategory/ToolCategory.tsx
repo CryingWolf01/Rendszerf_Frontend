@@ -83,7 +83,7 @@ const ToolCategory = () => {
                       {t("toolCategory.formValues.maintenanceInterval")}
                     </Typography>
                   </Grid>
-                  <Grid item xs={6}>
+                  <Grid item xs={4}>
                     <Typography className={classes.listTitle}>
                       {t("toolCategory.formValues.description")}
                     </Typography>

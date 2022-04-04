@@ -1,6 +1,7 @@
 import { Box, Button, Card, CardContent, CardHeader, makeStyles, TextField, Typography } from "@material-ui/core";
 import Alert from "@mui/material/Alert/Alert";
 import { createSelector } from "@reduxjs/toolkit";
+import { Dispatch, SetStateAction } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
@@ -33,7 +34,11 @@ const useStyles = makeStyles(
   }
 );
 
-const Login = () => {
+type Props = {
+  setLoggedIn?: Dispatch<SetStateAction<boolean>>;
+}
+
+const Login = ({setLoggedIn}: Props) => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const { t } = useTranslation();
@@ -45,6 +50,9 @@ const Login = () => {
     formState: { errors },
   } = useForm<User>();
   async function onSubmit(values: User) {
+    if (setLoggedIn) {
+      setLoggedIn(true);
+    }
     dispatch(loginUser({
       ...values,
       username: values.username,

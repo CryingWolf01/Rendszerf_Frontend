@@ -16,7 +16,7 @@ const ToolCreate = () => {
 
   const mutation = useMutation<any, any, Tool>(
     async (values) => {
-      await saveTool(values);
+      await saveTool({ ...values, toolCategory: { id: values.toolCategory.id } });
     },
     {
       onSuccess: () => {

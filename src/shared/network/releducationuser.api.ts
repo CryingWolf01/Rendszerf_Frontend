@@ -2,7 +2,7 @@ import axios from "../../config/axios";
 import { GenericListResponse, GenericPageResponse, GenericResponse } from "../common";
 import { RelEducationUser } from "../types";
 
-const ENDPOINT = "/education"
+const ENDPOINT = "/rel-education-user"
 
 export const saveEducationUser = (param: RelEducationUser)=> 
   axios.post(`${ENDPOINT}/save`, {param});

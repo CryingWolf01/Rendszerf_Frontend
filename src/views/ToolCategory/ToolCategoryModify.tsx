@@ -71,7 +71,7 @@ const ToolCategoryModify = () => {
         ) : (
           <FormProvider {...form}>
             <form onSubmit={form.handleSubmit(onSubmitModify)}>
-              <ToolCategoryForm />
+              <ToolCategoryForm toolCategory={toolCategoryQuery.data}/>
               <Box display="flex" justifyContent="center" m={2} gridGap={8}>
                 <Button color="primary" variant="text" onClick={() => history(-1)}>
                   {t("common:button.cancel")}

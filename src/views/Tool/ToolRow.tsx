@@ -22,7 +22,7 @@ const ToolRow = ({ tool }: Props) => {
         <Grid item xs={5} style={{ marginTop: "10px" }}>
           <Typography color="secondary">{tool.description}</Typography>
         </Grid>
-        <Grid item xs={1} style={{ marginTop: "10px" }}>
+        <Grid item container xs={1} style={{ marginTop: "10px" }} justifyContent="flex-end">
           <Tooltip title={t("tool.modify").toString()}>
             <IconButton
               size="small"

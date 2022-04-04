@@ -73,7 +73,7 @@ const User = () => {
             <>
               <Box style={{ marginBottom: "20px" }}>
                 <Grid container style={{ height: "40px" }}>
-                  <Grid item xs={6}>
+                  <Grid item xs={4}>
                     <Typography className={classes.listTitle}>
                       {t("user.formValues.name")}
                     </Typography>

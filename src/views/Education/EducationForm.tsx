@@ -5,7 +5,11 @@ import { useFormContext } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { Education } from "../../shared/types";
 
-const EducationForm = () => {
+type Props = {
+  education?: Education;
+}
+
+const EducationForm = ({education}: Props) => {
   const { t } = useTranslation();
   const { formState, register } = useFormContext<Education>();
 
@@ -15,6 +19,7 @@ const EducationForm = () => {
         <Grid item xs={12}>
           <TextField
             label={t("education.formValues.name")}
+            defaultValue={education?.name}
             InputLabelProps={{ shrink: true, required: true }}
             {...register("name", {
               required: {
@@ -29,6 +34,7 @@ const EducationForm = () => {
         <Grid item xs={12}>
           <TextField
             label={t("education.formValues.description")}
+            defaultValue={education?.description}
             InputLabelProps={{ shrink: true, required: true }}
             {...register("description", {
               required: {

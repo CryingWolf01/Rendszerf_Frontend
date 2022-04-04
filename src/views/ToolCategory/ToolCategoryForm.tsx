@@ -6,7 +6,11 @@ import { useTranslation } from "react-i18next";
 import { MAINTENANCE_INTERVAL } from "../../config/constants";
 import { ToolCategory } from "../../shared/types";
 
-const ToolCategoryForm = () => {
+type Props = {
+  toolCategory?: ToolCategory;
+}
+
+const ToolCategoryForm = ({toolCategory}: Props) => {
   const { t } = useTranslation();
   const { formState, register, control } = useFormContext<ToolCategory>();
 
@@ -16,6 +20,7 @@ const ToolCategoryForm = () => {
         <Grid item xs={12}>
           <TextField
             label={t("toolCategory.formValues.name")}
+            defaultValue={toolCategory?.category}
             InputLabelProps={{ shrink: true, required: true }}
             {...register("category", {
               required: {
@@ -31,7 +36,7 @@ const ToolCategoryForm = () => {
           <Controller
             control={control}
             name="maintenanceInterval"
-            defaultValue={"WEEK"}
+            defaultValue={toolCategory?.maintenanceInterval || "WEEK"}
             rules={{ required: t("common:validation.required").toString() }}
             render={({ field: { onChange, value } }) => (
               <TextField
@@ -57,6 +62,7 @@ const ToolCategoryForm = () => {
         <Grid item xs={12}>
           <TextField
             label={t("toolCategory.formValues.description")}
+            defaultValue={toolCategory?.description}
             InputLabelProps={{ shrink: true, required: true }}
             {...register("description", {
               required: {

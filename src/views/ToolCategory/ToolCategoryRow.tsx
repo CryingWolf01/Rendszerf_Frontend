@@ -16,7 +16,7 @@ const ToolCategoryRow = ({ category }: Props) => {
         <Grid item xs={3} style={{ marginTop: "10px" }}>
           <Typography color="secondary">{category.category}</Typography>
         </Grid>
-        <Grid item xs={2} style={{ marginTop: "10px" }}>
+        <Grid item xs={3} style={{ marginTop: "10px" }}>
           <Typography color="secondary">
             {t(`common:maintenanceInterval.${category.maintenanceInterval}`)}
           </Typography>
@@ -24,7 +24,7 @@ const ToolCategoryRow = ({ category }: Props) => {
         <Grid item xs={4} style={{ marginTop: "10px" }}>
           <Typography color="secondary">{category.description}</Typography>
         </Grid>
-        <Grid item xs={2} style={{ marginTop: "10px" }}>
+        <Grid item container xs={2} style={{ marginTop: "10px" }} justifyContent="flex-end">
           <Tooltip title={t("toolCategory.modify").toString()}>
             <IconButton
               size="small"

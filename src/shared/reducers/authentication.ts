@@ -92,6 +92,7 @@ export const login =
     try {
       dispatch(loginStart());
       const { data } = await loginUser({ username: username, password: password });
+      initialState.isAuthenticated = true;
       saveToken(data.item);
       dispatch(fetchAccount());
     } catch (error: any) {
