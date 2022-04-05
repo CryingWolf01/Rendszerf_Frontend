@@ -3,7 +3,9 @@ import {
 } from "@material-ui/core";
 import { Controller, useFormContext } from "react-hook-form";
 import { useTranslation } from "react-i18next";
+import { useQuery } from "react-query";
 import { MAINTENANCE_INTERVAL } from "../../config/constants";
+import { getToolCategoryList } from "../../shared/network/tool_category.api";
 import { ToolCategory } from "../../shared/types";
 
 type Props = {
@@ -13,6 +15,11 @@ type Props = {
 const ToolCategoryForm = ({toolCategory}: Props) => {
   const { t } = useTranslation();
   const { formState, register, control } = useFormContext<ToolCategory>();
+
+  const parentCategoryQuery = useQuery(["parentCategoryQuery"], async () => {
+    const { data } = await getToolCategoryList();
+    return data.items;
+  })
 
   return (
     <Container maxWidth="sm">
@@ -55,6 +62,34 @@ const ToolCategoryForm = ({toolCategory}: Props) => {
                     {t(`common:maintenanceInterval.${interval}`)}
                   </MenuItem>
                 ))}
+              </TextField>
+            )}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <Controller
+            control={control}
+            name="parentCategory.id"
+            defaultValue={toolCategory?.maintenanceInterval || "WEEK"}
+            rules={{ required: t("common:validation.required").toString() }}
+            render={({ field: { onChange, value } }) => (
+              <TextField
+                label={t("toolCategory.formValues.parentCategory")}
+                InputLabelProps={{ shrink: true, required: true }}
+                defaultValue="WEEK"
+                SelectProps={{ displayEmpty: true }}
+                select
+                value={value}
+                onChange={onChange}
+                error={formState.errors.maintenanceInterval && true}
+                helperText={formState.errors.maintenanceInterval?.message}
+              >
+                {parentCategoryQuery.data?.length &&
+                  parentCategoryQuery.data.map((parent) => (
+                    <MenuItem key={parent.id} value={parent.id}>
+                      {parent.category}
+                    </MenuItem>
+                  ))}
               </TextField>
             )}
           />

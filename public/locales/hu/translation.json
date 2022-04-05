@@ -70,7 +70,8 @@
     "formValues": {
       "name": "Eszköz neve",
       "description": "Eszköz leírása",
-      "maintenanceInterval": "Karbantartás intervalluma"
+      "maintenanceInterval": "Karbantartás intervalluma",
+      "parentCategory": "Szülő kategória"
     }
   },
   "relEducationToolCategory": {

@@ -53,7 +53,7 @@ export default function Layout({ children }: Props): JSX.Element {
   );
   const [isLoggedIn, setLoggedIn] = useState(false);
 
-  if (/*isAuthenticated*/isLoggedIn) {
+  if (/*isAuthenticated*/!isLoggedIn) {
     return <Login setLoggedIn={setLoggedIn}/>;
   }
 
