@@ -70,19 +70,15 @@ const ToolCategoryForm = ({toolCategory}: Props) => {
           <Controller
             control={control}
             name="parentCategory.id"
-            defaultValue={toolCategory?.maintenanceInterval || "WEEK"}
-            rules={{ required: t("common:validation.required").toString() }}
+            defaultValue={toolCategory?.parentCategory.id}
             render={({ field: { onChange, value } }) => (
               <TextField
                 label={t("toolCategory.formValues.parentCategory")}
-                InputLabelProps={{ shrink: true, required: true }}
-                defaultValue="WEEK"
+                InputLabelProps={{ shrink: true }}
                 SelectProps={{ displayEmpty: true }}
                 select
                 value={value}
                 onChange={onChange}
-                error={formState.errors.maintenanceInterval && true}
-                helperText={formState.errors.maintenanceInterval?.message}
               >
                 {parentCategoryQuery.data?.length &&
                   parentCategoryQuery.data.map((parent) => (

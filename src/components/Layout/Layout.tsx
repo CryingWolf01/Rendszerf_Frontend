@@ -7,9 +7,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { ArrowBack } from "@material-ui/icons";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
-import { RootState } from "../../config/store";
 import Login from "../../views/Login/Login";
 import SideBar from "./Sidebar/Sidebar";
 
@@ -48,12 +46,11 @@ export default function Layout({ children }: Props): JSX.Element {
   const { pathname } = useLocation();
   const page = pathname.match(/^\/([^/]*)[^/]?/)?.[1] || "home";
   const title = t([`drawer.${page}` || "drawer.notFound"]);
-  const { isAuthenticated } = useSelector(
-    (state: RootState) => state.authentication
+  const [isLoggedIn, setLoggedIn] = useState(
+    sessionStorage.getItem("loggedIn") === "true" ? true : false
   );
-  const [isLoggedIn, setLoggedIn] = useState(false);
 
-  if (/*isAuthenticated*/!isLoggedIn) {
+  if (!isLoggedIn) {
     return <Login setLoggedIn={setLoggedIn}/>;
   }
 

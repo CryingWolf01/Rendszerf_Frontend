@@ -4,7 +4,7 @@ import { FormProvider, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { useQuery } from "react-query";
 import { useLocation, useNavigate } from "react-router-dom";
-import { getUserById, saveUser } from "../../shared/network/user.api";
+import { getUserList, saveUser } from "../../shared/network/user.api";
 import { User } from "../../shared/types";
 import UserForm from "./UserForm";
 
@@ -19,12 +19,16 @@ const UserModify = () => {
 
   const userQuery = useQuery(["userQuery", id], async () => {
     if (id) {
-      const { data } = await getUserById(Number.parseInt(id));
-      return data.item;
+      const { data } = await getUserList();
+      return data.items;
     }
 
     return Promise.reject();
   });
+
+  const user = userQuery.data?.find(
+    (user) => id && user.id === Number.parseInt(id)
+  );
 
   const onSubmitModify = async (values: User) => {
     try {
@@ -70,7 +74,7 @@ const UserModify = () => {
         ) : (
           <FormProvider {...form}>
             <form onSubmit={form.handleSubmit(onSubmitModify)}>
-              <UserForm user={userQuery.data}/>
+              <UserForm user={user}/>
               <Box display="flex" justifyContent="center" m={2} gridGap={8}>
                 <Button color="primary" variant="text" onClick={() => history(-1)}>
                   {t("common:button.cancel")}

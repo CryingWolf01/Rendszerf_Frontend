@@ -37,6 +37,9 @@
     "delete": {
       "success": "Sikeres {{subject}} törlés!",
       "failure": "Sikertelen {{subject}} törlés!"
+    },
+    "login": {
+      "Failure": "Sikertelen bejelentkezés"
     }
   },
 

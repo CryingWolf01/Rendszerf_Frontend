@@ -1,30 +1,31 @@
-import {Routes, Route} from "react-router-dom";
-import Layout from './components/Layout/Layout';
-import PageNotFound from './views/PageNotFound';
-import Home from './views/Home';
-import User from "./views/User/User";
-import { Suspense } from "react";
-import { MuiPickersUtilsProvider } from "@material-ui/pickers";
-import supportedLocales from "./config/supportedLocales";
 import DateFnsUtils from "@date-io/date-fns";
-import LayoutLoading from "./components/LayoutLoading";
+import { MuiPickersUtilsProvider } from "@material-ui/pickers";
+import { Suspense } from "react";
 import { useTranslation } from "react-i18next";
-import Tool from "./views/Tool/Tool";
+import { Route, Routes } from "react-router-dom";
+import Layout from './components/Layout/Layout';
+import LayoutLoading from "./components/LayoutLoading";
+import supportedLocales from "./config/supportedLocales";
 import Education from "./views/Education/Education";
-import ToolCategory from "./views/ToolCategory/ToolCategory";
-import UserCreate from "./views/User/UserCreate";
-import ToolCategoryCreate from "./views/ToolCategory/ToolCategoryCreate";
-import ToolCreate from "./views/Tool/ToolCreate";
 import EducationCreate from "./views/Education/EducationCreate";
-import UserModify from "./views/User/UserModify";
-import UserDetails from "./views/User/UserDetails";
-import ToolModify from "./views/Tool/ToolModify";
-import ToolCategoryModify from "./views/ToolCategory/ToolCategoryModify";
-import ToolCategoryDetails from "./views/ToolCategory/ToolCategoryDetails";
 import EducationModify from "./views/Education/EducationModify";
-import EducationToolCategoryCreate from "./views/ToolCategory/components/EducationToolCategoryCreate";
-import UserEducationCreate from "./views/User/components/UserEducationCreate";
+import Home from './views/Home';
+import Issues from "./views/Issues/Issues";
 import Login from "./views/Login/Login";
+import PageNotFound from './views/PageNotFound';
+import Tool from "./views/Tool/Tool";
+import ToolCreate from "./views/Tool/ToolCreate";
+import ToolModify from "./views/Tool/ToolModify";
+import EducationToolCategoryCreate from "./views/ToolCategory/components/EducationToolCategoryCreate";
+import ToolCategory from "./views/ToolCategory/ToolCategory";
+import ToolCategoryCreate from "./views/ToolCategory/ToolCategoryCreate";
+import ToolCategoryDetails from "./views/ToolCategory/ToolCategoryDetails";
+import ToolCategoryModify from "./views/ToolCategory/ToolCategoryModify";
+import UserEducationCreate from "./views/User/components/UserEducationCreate";
+import User from "./views/User/User";
+import UserCreate from "./views/User/UserCreate";
+import UserDetails from "./views/User/UserDetails";
+import UserModify from "./views/User/UserModify";
 
 function App() {
   const { i18n } = useTranslation();
@@ -40,7 +41,7 @@ function App() {
             <Route element={<PageNotFound/>} />
             <Route path="/" element={<Home/>} />
             <Route path="/home" element={<Home />} />
-            <Route path="/login" element={<Login/>}/>
+            <Route path="login" element={<Login/>}/>
             {/*Users*/}
             <Route path="/user" element={<User/>} />
             <Route path="/user-create" element={<UserCreate/>} />
@@ -60,7 +61,9 @@ function App() {
             {/*Education*/}
             <Route path="/education" element={<Education/>} />
             <Route path="/education-create" element={<EducationCreate />} />
-            <Route path="/education-modify" element={<EducationModify/>} />
+            <Route path="/education-modify" element={<EducationModify />} />
+            {/*Issue*/}
+            <Route path="/issue" element={<Issues/>} />
           </Routes>
         </Layout>
       </Suspense>

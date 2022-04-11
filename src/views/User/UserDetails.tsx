@@ -38,8 +38,12 @@ const UserDetails = () => {
   const id = query.get("id");
 
   const userEducationQuery = useQuery(["userEducationQuery"], async () => {
-      const { data } = await getEducationUserList();
+    if (id) {
+      const { data } = await getEducationUserList(`user.id:${id}`);
       return data.items;
+    } else {
+      return Promise.reject();
+    }
   });
 
   return (

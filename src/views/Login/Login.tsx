@@ -1,25 +1,13 @@
 import { Box, Button, Card, CardContent, CardHeader, makeStyles, TextField, Typography } from "@material-ui/core";
-import Alert from "@mui/material/Alert/Alert";
-import { createSelector } from "@reduxjs/toolkit";
+import { useSnackbar } from "notistack";
 import { Dispatch, SetStateAction } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import PasswordTextField from "../../components/PasswordTextField";
-import { RootState } from "../../config/store";
 import { COLORS } from "../../config/theme";
 import { loginUser } from "../../shared/network/user.api";
 import { User } from "../../shared/types";
-
-const selector = createSelector(
-  (state: RootState) => state.authentication,
-  ({ status, isAuthenticated, error }) => ({
-    error,
-    status,
-    isAuthenticated,
-  })
-);
 
 const useStyles = makeStyles(
   {
@@ -40,29 +28,35 @@ type Props = {
 
 const Login = ({setLoggedIn}: Props) => {
   const classes = useStyles();
-  const dispatch = useDispatch();
+  const { enqueueSnackbar } = useSnackbar();
   const { t } = useTranslation();
-  const { status, isAuthenticated, error } = useSelector(selector);
   const {
     control,
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<User>();
-  async function onSubmit(values: User) {
-    if (setLoggedIn) {
-      setLoggedIn(true);
-    }
-    dispatch(loginUser({
-      ...values,
-      username: values.username,
-      password: values.password
-    }));
-  }
 
-  if (status === "success" && isAuthenticated) {
-    return <Navigate to={"/"} />;
-  }
+  const onSubmit = async (values: User) => {
+    try {
+      await loginUser({
+        ...values,
+        username: values.username,
+        password: values.password
+      });
+      if (setLoggedIn) {
+        setLoggedIn(true);
+      }
+      sessionStorage.setItem("username", values.username);
+      sessionStorage.setItem("loggedIn", "true");
+      <Navigate to={"/"} />
+    } catch (e) {
+      enqueueSnackbar(
+        t("common:notification.login.failure"),
+        { variant: "error" }
+      );
+    }
+  };
 
   return (
     <Box className={classes.root}>
@@ -83,15 +77,6 @@ const Login = ({setLoggedIn}: Props) => {
         >
           <CardHeader title={t("login.title")} />
           <CardContent style={{ paddingTop: 0 }}>
-            {status === "failure" && error && (
-              <Alert
-                severity="error"
-                style={{ borderRadius: 10 }}
-                variant="filled"
-              >
-                {t([`login.${error}`, "login.failure"])}
-              </Alert>
-            )}
             <TextField
               {...register("username", {
                 required: t("validation.required").toString(),

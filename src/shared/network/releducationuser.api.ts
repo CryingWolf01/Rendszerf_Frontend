@@ -13,5 +13,5 @@ export const getEducationUserById = (id: number)=>
 export const getEducationUsersPageable = (page: number, size: number, search: string = "")=> 
   axios.get<GenericPageResponse<RelEducationUser>>(`${ENDPOINT}/pageable?page=${page}&size=${size}&search=${search}`);
 
-export const getEducationUserList = (search: string="")=> 
+export const getEducationUserList = (search = "")=> 
   axios.get<GenericListResponse<RelEducationUser>>(`${ENDPOINT}/list?search=${search}`);

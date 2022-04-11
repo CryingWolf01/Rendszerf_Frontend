@@ -48,8 +48,12 @@ const ToolCategoryDetails = () => {
   });
 
   const educationToolCategoriesQuery = useQuery(["educationToolCategoriesQuery"], async () => {
-      const { data } = await getEducationToolCategoryList();
+    if (id) {
+      const { data } = await getEducationToolCategoryList(`toolCategory.id:${id}`);
       return data.items;
+    } else {
+      return Promise.reject();
+    }
   });
 
   return (

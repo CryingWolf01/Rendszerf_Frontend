@@ -18,6 +18,7 @@
     "education": "Végzettség",
     "education-create": "Végzettség felvétele",
     "education-modify": "Végzettség módosítása",
+    "issues": "Feladatok",
     "notFound": ""
   },
   "login": {
@@ -91,6 +92,10 @@
       "user": "Felhasználó",
       "education": "Végzettség"
     }
+  },
+  "issue": {
+    "title": "Feladatok",
+    "subject": "feladat"
   },
   "notFound": "Az oldal nem található",
   "noItem": "Nincs megjeleníthető elem"
