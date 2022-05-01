@@ -46,7 +46,7 @@ const IssueDetails = () => {
 
   return (
     <Container maxWidth="lg">
-      {issueQuery.isFetching ? (
+      {issueQuery.isFetching ? (<></>) : (
         <>
           <Grid container justifyContent="center">
             <Grid item xs={6}>
@@ -147,8 +147,6 @@ const IssueDetails = () => {
             </Box>
           )}
         </>
-      ) : (
-        <></>
       )}
     </Container>
   );

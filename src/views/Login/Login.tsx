@@ -39,16 +39,17 @@ const Login = ({setLoggedIn}: Props) => {
 
   const onSubmit = async (values: User) => {
     try {
-      await loginUser({
-        ...values,
+      const data = await loginUser({
         username: values.username,
         password: values.password
       });
       if (setLoggedIn) {
         setLoggedIn(true);
       }
-      sessionStorage.setItem("username", values.username);
+      sessionStorage.setItem("username", data.data.item.username);
+      sessionStorage.setItem("userType", data.data.item.userType);
       sessionStorage.setItem("loggedIn", "true");
+      
       <Navigate to={"/"} />
     } catch (e) {
       enqueueSnackbar(

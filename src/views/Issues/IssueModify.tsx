@@ -1,4 +1,4 @@
-import { Box, Button, CircularProgress, Container } from "@material-ui/core";
+import { Box, CircularProgress, Container } from "@material-ui/core";
 import { format } from "date-fns";
 import { useSnackbar } from "notistack";
 import { FormProvider, useForm } from "react-hook-form";
@@ -32,7 +32,7 @@ const IssueModify = () => {
         dateTime: format(values.dateTime, "yyyy-MM-dd")
       });
       enqueueSnackbar(
-        t("common:notification.modify.success", {
+        t("common:notification.update.success", {
           subject: t("issue.subject"),
         }),
         {
@@ -42,7 +42,7 @@ const IssueModify = () => {
       history(-1);
     } catch {
       enqueueSnackbar(
-        t("common:notification.modify.failure", {
+        t("common:notification.update.failure", {
           subject: t("issue.subject"),
         }),
         {
@@ -54,7 +54,7 @@ const IssueModify = () => {
 
   return (
     <>
-      <Container maxWidth="sm">
+      <Container maxWidth="md">
         {issueQuery.isFetching ? (
           <Box
             display="flex"
@@ -68,14 +68,6 @@ const IssueModify = () => {
           <FormProvider {...form}>
             <form onSubmit={form.handleSubmit(onSubmitModify)}>
               <IssueForm issue={issueQuery.data}/>
-              <Box display="flex" justifyContent="center" m={2} gridGap={8}>
-                <Button color="primary" variant="text" onClick={() => history(-1)}>
-                  {t("common:button.cancel")}
-                </Button>
-                <Button type="submit" color="primary">
-                  {t("common:button.save")}
-                </Button>
-              </Box>
             </form>
           </FormProvider>
         )}

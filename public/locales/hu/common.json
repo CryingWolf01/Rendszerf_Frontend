@@ -60,7 +60,7 @@
       "failure": "Sikertelen {{subject}} törlés!"
     },
     "login": {
-      "Failure": "Sikertelen bejelentkezés"
+      "failure": "Sikertelen bejelentkezés"
     }
   },
 

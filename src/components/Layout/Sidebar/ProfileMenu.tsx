@@ -18,6 +18,7 @@ const ProfileMenu = ({
   async function logout() {
     sessionStorage.setItem("loggedIn", "false");
     sessionStorage.setItem("username", "");
+    sessionStorage.setItem("userType", "");
     window.location.reload();
   }
 

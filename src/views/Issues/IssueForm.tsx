@@ -70,11 +70,10 @@ const IssueForm = ({issue}: Props) => {
             control={control}
             name="type"
             defaultValue={issue?.type}
-            rules={{ required: t("validation.required").toString() }}
             render={({ field: { onChange, value } }) => (
               <TextField
                 label={t("issue.formValues.type")}
-                InputLabelProps={{ shrink: true, required: true }}
+                InputLabelProps={{ shrink: true }}
                 defaultValue="default"
                 SelectProps={{ displayEmpty: true }}
                 select
@@ -125,11 +124,10 @@ const IssueForm = ({issue}: Props) => {
             control={control}
             name="responsibleUser.id"
             defaultValue={issue?.responsibleUser?.id}
-            rules={{ required: t("validation.required").toString() }}
             render={({ field: { onChange, value } }) => (
               <TextField
                 label={t("issue.formValues.responsibleUser")}
-                InputLabelProps={{ shrink: true, required: true }}
+                InputLabelProps={{ shrink: true }}
                 defaultValue="default"
                 SelectProps={{ displayEmpty: true }}
                 select
@@ -180,11 +178,10 @@ const IssueForm = ({issue}: Props) => {
             control={control}
             name="severity"
             defaultValue={issue?.severity}
-            rules={{ required: t("validation.required").toString() }}
             render={({ field: { onChange, value } }) => (
               <TextField
                 label={t("issue.formValues.severity")}
-                InputLabelProps={{ shrink: true, required: true }}
+                InputLabelProps={{ shrink: true }}
                 defaultValue="default"
                 SelectProps={{ displayEmpty: true }}
                 select
@@ -246,13 +243,8 @@ const IssueForm = ({issue}: Props) => {
           <TextField
             label={t("issue.formValues.description")}
             defaultValue={issue?.description}
-            InputLabelProps={{ shrink: true, required: true }}
-            {...register("description", {
-              required: {
-                value: true,
-                message: t("common:validation.required"),
-              },
-            })}
+            InputLabelProps={{ shrink: true }}
+            {...register("description")}
             multiline
             rows={3}
             error={formState.errors.description && true}

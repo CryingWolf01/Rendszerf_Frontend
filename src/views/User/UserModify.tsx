@@ -39,7 +39,7 @@ const UserModify = () => {
         }
       );
       enqueueSnackbar(
-        t("common:notification.modify.success", {
+        t("common:notification.update.success", {
           subject: t("education.subject"),
         }),
         {
@@ -49,7 +49,7 @@ const UserModify = () => {
       history(-1);
     } catch {
       enqueueSnackbar(
-        t("common:notification.modify.failure", {
+        t("common:notification.update.failure", {
           subject: t("education.subject"),
         }),
         {
