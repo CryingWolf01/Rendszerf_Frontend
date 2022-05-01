@@ -11,6 +11,7 @@ export type Tool = {
   identifier: string;
   name: string;
   toolCategory: any;
+  location: string;
 };
 
 export type ToolCategory = {
@@ -18,6 +19,8 @@ export type ToolCategory = {
   description: string;
   category: string;
   maintenanceInterval: string;
+  maintenanceDescription: string;
+  maintenanceEstimatedTime: number;
   parentCategory : any;
 };
 
@@ -38,3 +41,23 @@ export type RelEducationUser = {
   education: Education;
   user: User;
 };
+
+export type Issue = {
+  id: number;
+  tool: Tool;
+  responsibleUser: User;
+  dateTime: string;
+  estimatedTime: number;
+  title: string;
+  severity: string;
+  type: string;
+  status: string;
+  description: string;
+  issueLogs?: IssueLog[];
+};
+
+export type IssueLog = {
+  id: number;
+  issueId: number;
+  description: number;
+}

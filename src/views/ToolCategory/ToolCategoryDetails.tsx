@@ -77,6 +77,14 @@ const ToolCategoryDetails = () => {
                 {toolCategoryQuery.data?.maintenanceInterval || ""}
               </Typography>
             </Grid>
+            <Grid item xs={6}>
+              <Typography className={classes.title}>
+                {t("toolCategory.formValues.maintenanceDescription")}
+              </Typography>
+              <Typography className={classes.data}>
+                {toolCategoryQuery.data?.maintenanceDescription || ""}
+              </Typography>
+            </Grid>
             <Grid item xs={12}>
               <Typography className={classes.title}>
                 {t("toolCategory.formValues.description")}
@@ -123,12 +131,12 @@ const ToolCategoryDetails = () => {
             {educationToolCategoriesQuery.data?.length &&
               educationToolCategoriesQuery.data.map((category) => (
                 <EducationToolCategoryRow category={category} />
-            ))}
+              ))}
           </Box>
         </>
       )}
     </Container>
-  )
+  );
 };
 
 export default ToolCategoryDetails;

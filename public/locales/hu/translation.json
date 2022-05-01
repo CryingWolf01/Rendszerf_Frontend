@@ -18,7 +18,10 @@
     "education": "Végzettség",
     "education-create": "Végzettség felvétele",
     "education-modify": "Végzettség módosítása",
-    "issues": "Feladatok",
+    "issue": "Feladatok",
+    "issue-create": "Feladat felvétele",
+    "issue-modify": "Feladat módosítása",
+    "issue-details": "Feladat kategóriák",
     "notFound": ""
   },
   "login": {
@@ -95,7 +98,27 @@
   },
   "issue": {
     "title": "Feladatok",
-    "subject": "feladat"
+    "subject": "feladat",
+    "create": "Feladat létrehozása",
+    "modify": "Feladat módosítása",
+    "details": "Feladat részletei",
+    "formValues": {
+      "id": "Azonosító",
+      "tool": "Eszköz",
+      "responsibleUser": "Felelős",
+      "dateTime": "Feladat időpontja",
+      "estimatedTime": "Becsült idő (óra)",
+      "title": "Feladat címe",
+      "severity": "Súlyosság",
+      "type": "Feladat típusa",
+      "status": "Státusz",
+      "description": "Leírás",
+      "issueLogs": "Napló"
+    },
+    "issueLog": {
+      "issueId": "Feladat azonosítója",
+      "description": "Leírás"
+    }
   },
   "notFound": "Az oldal nem található",
   "noItem": "Nincs megjeleníthető elem"

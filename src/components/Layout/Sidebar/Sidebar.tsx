@@ -1,6 +1,6 @@
-import { Avatar, Box, Drawer, Typography } from "@material-ui/core";
+import { Avatar, Box, Drawer } from "@material-ui/core";
 import { Book, Build, Category, Group, Home, Note } from "@material-ui/icons";
-import { useState, MouseEvent } from "react";
+import { MouseEvent, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { COLORS } from "../../../config/theme";
 import ProfileMenu from "./ProfileMenu";
@@ -45,7 +45,7 @@ const SideBar = ()=>{
           <SidebarItem to="/tool" text={t("drawer.tool")} icon={<Build />} />
           <SidebarItem to="/tool-category" text={t("drawer.tool-category")} icon={<Category />} />
           <SidebarItem to="/education" text={t("drawer.education")} icon={<Book />} />
-          <SidebarItem to="/issues" text={t("drawer.issues")} icon={<Note />} />
+          <SidebarItem to="/issue" text={t("drawer.issue")} icon={<Note />} />
         </Box>
         <SidebarItem
           onClick={handleClickProfile}

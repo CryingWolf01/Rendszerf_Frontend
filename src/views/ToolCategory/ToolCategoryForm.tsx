@@ -67,6 +67,14 @@ const ToolCategoryForm = ({toolCategory}: Props) => {
           />
         </Grid>
         <Grid item xs={12}>
+          <TextField
+            label={t("toolCategory.formValues.maintenanceDescription")}
+            defaultValue={toolCategory?.maintenanceDescription}
+            InputLabelProps={{ shrink: true }}
+            {...register("maintenanceDescription")}
+          />
+        </Grid>
+        <Grid item xs={12}>
           <Controller
             control={control}
             name="parentCategory.id"

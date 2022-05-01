@@ -1,8 +1,6 @@
 import { ListItemIcon, MenuItem, MenuList, Popover, Typography } from "@material-ui/core";
-import { AccountBoxOutlined, ExitToAppRounded } from "@material-ui/icons";
+import { ExitToAppRounded } from "@material-ui/icons";
 import { Dispatch, SetStateAction } from "react";
-import { Link, Navigate } from "react-router-dom";
-import Login from "../../../views/Login/Login";
 
 type Props = {
   anchorElProfile: HTMLElement | null;

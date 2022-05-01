@@ -24,3 +24,24 @@ export const USER_TYPES = [
   "OPERATOR",
   "REPAIRMAN"
 ];
+
+export const ISSUE_STATUSES = [
+  "NEW",
+  "SCHEDULED",
+  "ACCEPTED",
+  "DECLINED",
+  "STARTED",
+  "COMPLETED"
+];
+
+export const SEVERITY_TYPES = [
+  "LOW",
+  "NORMAL",
+  "HIGH"
+];
+
+export const ISSUE_TYPES = [
+  "MAINTENANCE",
+  "EXTRAORDINARY",
+  "OTHER"
+];

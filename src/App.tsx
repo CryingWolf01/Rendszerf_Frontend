@@ -10,6 +10,9 @@ import Education from "./views/Education/Education";
 import EducationCreate from "./views/Education/EducationCreate";
 import EducationModify from "./views/Education/EducationModify";
 import Home from './views/Home';
+import IssueCreate from "./views/Issues/IssueCreate";
+import IssueDetails from "./views/Issues/IssueDetails";
+import IssueModify from "./views/Issues/IssueModify";
 import Issues from "./views/Issues/Issues";
 import Login from "./views/Login/Login";
 import PageNotFound from './views/PageNotFound';
@@ -63,7 +66,10 @@ function App() {
             <Route path="/education-create" element={<EducationCreate />} />
             <Route path="/education-modify" element={<EducationModify />} />
             {/*Issue*/}
-            <Route path="/issue" element={<Issues/>} />
+            <Route path="/issue" element={<Issues />} />
+            <Route path="/issue-create" element={<IssueCreate />} />
+            <Route path="/issue-modify" element={<IssueModify/>} />
+            <Route path="/issue-details" element={<IssueDetails />} />
           </Routes>
         </Layout>
       </Suspense>

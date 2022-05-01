@@ -25,6 +25,27 @@
     "REPAIRMAN": "Karbantartó"
   },
 
+  "issueStatuses": {
+    "NEW": "Új",
+    "SCHEDULED": "Ütemezve",
+    "ACCEPTED": "Elfogadva",
+    "DECLINED": "Visszautasítva",
+    "STARTED": "Elkezdve",
+    "COMPLETED": "Teljesítve"
+  },
+
+  "severityTypes": {
+    "LOW": "Alacsony",
+    "NORMAL": "Normál",
+    "HIGH": "Magas"
+  },
+
+  "issueTypes": {
+    "MAINTENANCE": "Karbantartási",
+    "EXTRAORDINARY": "Rendkívüli",
+    "OTHER": "Egyéb"
+  },
+
   "notification": {
     "update": {
       "success": "Sikeres {{subject}} módosítás!",
