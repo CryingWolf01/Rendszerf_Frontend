@@ -24,9 +24,14 @@ const IssueRow = ({issue}: Props) => {
             {issue.severity ? t(`common:severityTypes.${issue.severity}`) : "-"}
           </Typography>
         </Grid>
-        <Grid item xs={3} style={{ marginTop: "10px" }}>
+        <Grid item xs={2} style={{ marginTop: "10px" }}>
           <Typography color="secondary">
             {issue.type ? t(`common:issueTypes.${issue.type}`) : "-"}
+          </Typography>
+        </Grid>
+        <Grid item xs={1} style={{ marginTop: "10px" }}>
+          <Typography color="secondary">
+            {issue.status ? t(`common:issueStatuses.${issue.status}` ) : "-"}
           </Typography>
         </Grid>
         <Grid item container xs={2} style={{ marginTop: "10px" }} justifyContent="flex-end">

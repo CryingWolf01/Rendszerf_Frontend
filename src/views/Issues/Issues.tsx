@@ -88,9 +88,14 @@ const Issues = () => {
                       {t("issue.formValues.severity")}
                     </Typography>
                   </Grid>
-                  <Grid item xs={3}>
+                  <Grid item xs={2}>
                     <Typography className={classes.toolListTitle}>
                       {t("issue.formValues.type")}
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={1}>
+                    <Typography className={classes.toolListTitle}>
+                      {t("issue.formValues.status")}
                     </Typography>
                   </Grid>
                 </Grid>
