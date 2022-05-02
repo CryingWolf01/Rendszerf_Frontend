@@ -29,10 +29,13 @@ const Issues = () => {
     )
   );
 
+  const userId = sessionStorage.getItem("userId");
+  const userType = sessionStorage.getItem("userType");
+
   const listIssuessQuery = useQuery(
     ["listIssuesQuery", page],
     async () => {
-      const { data } = await getIssuesPageable(page, 10);
+      const { data } = await getIssuesPageable(page, 10, userType === "REPAIRMAN" ? "responsibleUser.id:" + userId : "");
       return data;
     }
   );

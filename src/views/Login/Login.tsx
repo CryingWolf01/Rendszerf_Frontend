@@ -46,6 +46,7 @@ const Login = ({setLoggedIn}: Props) => {
       if (setLoggedIn) {
         setLoggedIn(true);
       }
+      sessionStorage.setItem("userId", String(data.data.item.id));
       sessionStorage.setItem("username", data.data.item.username);
       sessionStorage.setItem("userType", data.data.item.userType);
       sessionStorage.setItem("loggedIn", "true");
