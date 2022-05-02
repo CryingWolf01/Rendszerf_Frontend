@@ -22,6 +22,7 @@
     "issue-create": "Feladat felvétele",
     "issue-modify": "Feladat módosítása",
     "issue-details": "Feladat kategóriák",
+    "issue-status-modify": "Státusz módosítás",
     "notFound": ""
   },
   "login": {
@@ -102,6 +103,8 @@
     "create": "Feladat létrehozása",
     "modify": "Feladat módosítása",
     "details": "Feladat részletei",
+    "statusModify": "Státusz módosítása",
+    "statusSubject": "státusz",
     "formValues": {
       "id": "Azonosító",
       "tool": "Eszköz",
@@ -113,7 +116,8 @@
       "type": "Feladat típusa",
       "status": "Státusz",
       "description": "Leírás",
-      "issueLogs": "Napló"
+      "issueLogs": "Napló",
+      "justification": "Indoklás"
     },
     "issueLog": {
       "issueId": "Feladat azonosítója",

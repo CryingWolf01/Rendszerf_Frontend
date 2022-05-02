@@ -1,12 +1,12 @@
 import { Box, CircularProgress, Container } from "@material-ui/core";
-import { format } from "date-fns";
 import { useSnackbar } from "notistack";
 import { FormProvider, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { useQuery } from "react-query";
 import { useLocation, useNavigate } from "react-router-dom";
 import { getIssueById, saveIssue } from "../../shared/network/issue.api";
-import IssueForm, { IssueFormValues } from "./IssueForm";
+import { Issue } from "../../shared/types";
+import IssueForm from "./IssueForm";
 
 const IssueModify = () => {
   const { t } = useTranslation();
@@ -14,7 +14,7 @@ const IssueModify = () => {
   const location = useLocation();
   const query = new URLSearchParams(location.search);
   const id = query.get("id");
-  const form = useForm<IssueFormValues>();
+  const form = useForm<Issue>();
   const { enqueueSnackbar } = useSnackbar();
 
   const issueQuery = useQuery(["issueQueryForModify", id], async () => {
@@ -25,12 +25,9 @@ const IssueModify = () => {
     return Promise.reject();
   });
 
-  const onSubmitModify = async (values: IssueFormValues) => {
+  const onSubmitModify = async (values: Issue) => {
     try {
-      await saveIssue({
-        ...values,
-        dateTime: format(values.dateTime, "yyyy-MM-dd")
-      });
+      await saveIssue(values);
       enqueueSnackbar(
         t("common:notification.update.success", {
           subject: t("issue.subject"),

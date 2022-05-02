@@ -46,7 +46,7 @@ export type Issue = {
   id: number;
   tool: Tool;
   responsibleUser: User;
-  dateTime: string;
+  dateTime: Date;
   estimatedTime: number;
   title: string;
   severity: string;
@@ -60,4 +60,10 @@ export type IssueLog = {
   id: number;
   issueId: number;
   description: number;
+};
+
+export type IssueUpdateSatatusValues = {
+  issueId: number | null;
+  newStatus: string;
+  justification: string;
 }

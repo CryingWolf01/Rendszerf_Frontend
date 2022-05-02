@@ -1,6 +1,6 @@
 import axios from "../../config/axios";
 import { GenericListResponse, GenericPageResponse, GenericResponse } from "../common";
-import { Issue } from "../types";
+import { Issue, IssueUpdateSatatusValues } from "../types";
 
 const ENDPOINT = "/issue"
 
@@ -15,3 +15,6 @@ export const getIssuesPageable = (page: number, size: number, search: string = "
 
 export const getISsueList = (search: string="")=> 
   axios.get<GenericListResponse<Issue>>(`${ENDPOINT}/list?search=${search}`);
+
+export const modifyIssueStatus = (param: IssueUpdateSatatusValues) =>
+  axios.post(`${ENDPOINT}/update-status`, param);

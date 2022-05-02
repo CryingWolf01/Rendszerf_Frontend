@@ -70,7 +70,7 @@ const IssueDetails = () => {
                 {t("issue.formValues.type")}
               </Typography>
               <Typography className={classes.data}>
-                {issueQuery.data?.type || ""}
+                {issueQuery.data?.type ? t(`common:issueTypes.${issueQuery.data.type}`) : "-"}
               </Typography>
             </Grid>
             <Grid item xs={6}>
@@ -102,7 +102,7 @@ const IssueDetails = () => {
                 {t("issue.formValues.severity")}
               </Typography>
               <Typography className={classes.data}>
-                {issueQuery.data?.severity || ""}
+                 {issueQuery.data?.severity ? t(`common:severityTypes.${issueQuery.data?.severity}`) : "-"}
               </Typography>
             </Grid>
             <Grid item xs={6}>
@@ -110,7 +110,7 @@ const IssueDetails = () => {
                 {t("issue.formValues.status")}
               </Typography>
               <Typography className={classes.data}>
-                {issueQuery.data?.status || ""}
+                {issueQuery.data?.status ? t(`common:issueStatuses.${issueQuery.data?.status}`) : "-"}
               </Typography>
             </Grid>
             <Grid item xs={12}>
@@ -132,7 +132,7 @@ const IssueDetails = () => {
               {issueQuery.data?.issueLogs?.map((issue) => (
                 <Box style={{ marginBottom: "5px" }}>
                   <Grid container style={{ marginTop: "5px" }}>
-                    <Grid item xs={2} style={{ marginTop: "10px" }}>
+                    <Grid item xs={12} style={{ marginTop: "10px" }}>
                       <Typography color="secondary">{issue.description}</Typography>
                     </Grid>
                   </Grid>

@@ -12,30 +12,16 @@ import { useNavigate } from "react-router-dom";
 import { ISSUE_STATUSES, ISSUE_TYPES, SEVERITY_TYPES } from "../../config/constants";
 import { getToolList } from "../../shared/network/tool.api";
 import { getUserList } from "../../shared/network/user.api";
-import { Issue, IssueLog, Tool, User } from "../../shared/types";
+import { Issue } from "../../shared/types";
 
 type Props = {
   issue?: Issue
 }
 
-export type IssueFormValues = {
-  id: number;
-  tool: Tool;
-  responsibleUser: User;
-  dateTime: Date;
-  estimatedTime: number;
-  title: string;
-  severity: string;
-  type: string;
-  status: string;
-  description: string;
-  issueLogs?: IssueLog[];
-};
-
 const IssueForm = ({issue}: Props) => {
   const { t } = useTranslation();
   const history = useNavigate();
-  const { formState, register, control, } = useFormContext<IssueFormValues>();
+  const { formState, register, control, } = useFormContext<Issue>();
 
   const toolQuery = useQuery(["toolForIssues"], async () => {
     const { data } = await getToolList();
@@ -146,17 +132,16 @@ const IssueForm = ({issue}: Props) => {
             )}
           />
         </Grid>
-        <Grid item xs={6}>
+       <Grid item xs={6}>
           <Controller
             control={control}
             name="status"
-            defaultValue={issue?.status}
+            defaultValue={issue?.type}
             rules={{ required: t("validation.required").toString() }}
             render={({ field: { onChange, value } }) => (
               <TextField
                 label={t("issue.formValues.status")}
-                InputLabelProps={{ shrink: true, required: true }}
-                defaultValue="default"
+                InputLabelProps={{ shrink: true,  required: true }}
                 SelectProps={{ displayEmpty: true }}
                 select
                 value={value}
