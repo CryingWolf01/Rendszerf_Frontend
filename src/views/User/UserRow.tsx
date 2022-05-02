@@ -22,17 +22,19 @@ const UserRow = ({user}: Props)=>{
           </Typography>
         </Grid>
         <Grid item container xs={2} style={{ marginTop: "10px" }} justifyContent="flex-end">
-          <Tooltip title={t("user.modify").toString()}>
-            <IconButton
-              size="small"
-              color="primary"
-              style={{ margin: "0 8px" }}
-              component={Link}
-              to={`/user-modify?id=${user.id}`}
-            >
-              <Edit />
-            </IconButton>
-          </Tooltip>
+          {sessionStorage.getItem("userType") === "ADMIN" &&
+            <Tooltip title={t("user.modify").toString()}>
+              <IconButton
+                size="small"
+                color="primary"
+                style={{ margin: "0 8px" }}
+                component={Link}
+                to={`/user-modify?id=${user.id}`}
+              >
+                <Edit />
+              </IconButton>
+            </Tooltip>
+          }
           <Tooltip title={t("user.details").toString()}>
             <IconButton
               size="small"

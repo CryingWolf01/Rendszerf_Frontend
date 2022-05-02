@@ -17,6 +17,8 @@ const SideBar = ()=>{
     setAnchorElProfile(event.currentTarget);
   };
 
+  const userType = sessionStorage.getItem("userType");
+
   return (
     <>
       <ProfileMenu
@@ -41,11 +43,21 @@ const SideBar = ()=>{
       >
         <Box>
           <SidebarItem to="/" text={t("drawer.home")} icon={<Home />} />
-          <SidebarItem to="/user" text={t("drawer.user")} icon={<Group />} />
-          <SidebarItem to="/tool" text={t("drawer.tool")} icon={<Build />} />
-          <SidebarItem to="/tool-category" text={t("drawer.tool-category")} icon={<Category />} />
-          <SidebarItem to="/education" text={t("drawer.education")} icon={<Book />} />
-          <SidebarItem to="/issue" text={t("drawer.issue")} icon={<Note />} />
+          {(userType === "ADMIN" || userType === "OPERATOR") &&
+            <SidebarItem to="/user" text={t("drawer.user")} icon={<Group />} />
+          } { /*Csak adminnak és operátornak látható */}
+          {userType !== "OPERATOR" && userType !== "REPAIRMAN" &&
+            <SidebarItem to="/tool" text={t("drawer.tool")} icon={<Build />} />
+          } { /*admin és eszköz kezelő láthatja */}
+          {userType !== "OPERATOR" && userType !== "REPAIRMAN" && 
+            <SidebarItem to="/tool-category" text={t("drawer.tool-category")} icon={<Category />} />
+          } { /*admin és eszköz kezelő láthatja */}
+          {(userType === "ADMIN" || userType === "OPERATOR") &&
+            <SidebarItem to="/education" text={t("drawer.education")} icon={<Book />} />
+          } { /*Csak adminnak és operátornak látható */}
+          {userType !== "TOOL_MANAGER" &&
+            <SidebarItem to="/issue" text={t("drawer.issue")} icon={<Note />} />
+          } { /* admin, eszköz kezelő és karbantartó láthatja */}
         </Box>
         <SidebarItem
           onClick={handleClickProfile}

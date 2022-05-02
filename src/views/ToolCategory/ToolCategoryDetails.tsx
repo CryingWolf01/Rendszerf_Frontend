@@ -58,7 +58,7 @@ const ToolCategoryDetails = () => {
 
   return (
     <Container maxWidth="lg">
-      {toolCategoryQuery.isFetching ? (
+      {toolCategoryQuery.isFetching ? (<></>) : (
         <>
           <Grid container justifyContent="center">
             <Grid item xs={6}>
@@ -74,7 +74,15 @@ const ToolCategoryDetails = () => {
                 {t("toolCategory.formValues.maintenanceInterval")}
               </Typography>
               <Typography className={classes.data}>
-                {toolCategoryQuery.data?.maintenanceInterval || ""}
+                {t(`common:maintenanceInterval.${toolCategoryQuery.data?.maintenanceInterval}`) || ""}
+              </Typography>
+            </Grid>
+             <Grid item xs={6}>
+              <Typography className={classes.title}>
+                {t("toolCategory.formValues.maintenanceEstimatedTime")}
+              </Typography>
+              <Typography className={classes.data}>
+                {toolCategoryQuery.data?.maintenanceEstimatedTime || ""}
               </Typography>
             </Grid>
             <Grid item xs={6}>
@@ -95,8 +103,6 @@ const ToolCategoryDetails = () => {
             </Grid>
           </Grid>
         </>
-      ) : (
-        <></>
       )}
       <Box display="flex" justifyContent="flex-end">
         <Box>

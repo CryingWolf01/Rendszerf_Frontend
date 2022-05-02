@@ -73,16 +73,18 @@
     "modify": "Eszköz kategória módosítása",
     "details": "Eszköz kategória adatai",
     "formValues": {
-      "name": "Eszköz neve",
-      "description": "Eszköz leírása",
+      "name": "Kategória neve",
+      "description": "Kategória leírása",
       "maintenanceInterval": "Karbantartás intervalluma",
+      "maintenanceDescription": "Karbantartási feladat leírása",
+      "maintenanceEstimatedTime": "Javításhoz szükséges idő (óra)",
       "parentCategory": "Szülő kategória"
     }
   },
   "relEducationToolCategory": {
-    "title": "Eszközökhöz szükséges végzettségek",
+    "title": "Kategóriához szükséges végzettségek",
     "subject": "végzettség",
-    "create": "Eszközhöz szükséges végzettség felvétele",
+    "create": "Kategóriához szükséges végzettség felvétele",
     "formValues": {
       "toolCategory": "Eszköz kategória",
       "education": "Végzettség"

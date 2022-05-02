@@ -68,6 +68,14 @@ const ToolCategoryForm = ({toolCategory}: Props) => {
         </Grid>
         <Grid item xs={12}>
           <TextField
+            label={t("toolCategory.formValues.maintenanceEstimatedTime")}
+            defaultValue={toolCategory?.maintenanceEstimatedTime}
+            InputLabelProps={{ shrink: true }}
+            {...register("maintenanceEstimatedTime")}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <TextField
             label={t("toolCategory.formValues.maintenanceDescription")}
             defaultValue={toolCategory?.maintenanceDescription}
             InputLabelProps={{ shrink: true }}

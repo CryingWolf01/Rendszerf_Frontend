@@ -39,19 +39,21 @@ const User = () => {
 
   return (
     <Container maxWidth="lg">
-      <Box display="flex" justifyContent="flex-end">
-        <Box>
-          <Button component={Link} to="/user-create">
-            <Add
-              style={{
-                fontSize: "20px",
-                marginRight: 8,
-              }}
-            />
-            {t("user.create")}
-          </Button>
+      {sessionStorage.getItem("userType") === "ADMIN" &&
+        <Box display="flex" justifyContent="flex-end">
+          <Box>
+            <Button component={Link} to="/user-create">
+              <Add
+                style={{
+                  fontSize: "20px",
+                  marginRight: 8,
+                }}
+              />
+              {t("user.create")}
+            </Button>
+          </Box>
         </Box>
-      </Box>
+      }
       {listUsersQuery.isFetching ? (
         <Box
           display="flex"
